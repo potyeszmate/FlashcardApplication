@@ -1,0 +1,28 @@
+<br><br>
+<h2>Welcome! Select language category to study!</h2>
+<mat-card> 
+    <mat-form-field appearance="fill">
+    <mat-label>Select category</mat-label>
+    <mat-select (selectionChange)="changeCategory($event.value)">
+        
+        <mat-option *ngFor="let category of categories" [value]="category.value">
+        {{category.categoryName}}
+        </mat-option>
+
+        
+    </mat-select>
+    </mat-form-field>
+    Your selected category is: {{selectedCategory}}
+</mat-card>
+
+<br><br>
+
+
+<div *ngFor="let flashcard of flashcardlist | async;">
+    <div *ngIf="flashcard.category === selectedCategory">
+        <app-flashcard-card class="item" [flashcard] = "flashcard"></app-flashcard-card>
+    </div>
+    <br>
+</div>
+
+

@@ -1,0 +1,51 @@
+<div class="centering">
+    <mat-card class="reg-card">
+      <form [formGroup]="form" (submit)="registration()">      
+        <h3>Registration page</h3>
+        
+        <mat-form-field class="max-width">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" name="nickname" placeholder="Nickname" required formControlName="username">
+        </mat-form-field>
+  
+        <mat-form-field class="max-width">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="email" #emailSignup name="email" placeholder="email@gmail.com" required formControlName="email">
+        </mat-form-field>
+  
+        <mat-form-field class="max-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" #passwordSignup name="password" matInput #password1 minlength="8" placeholder="Password" formControlName="password1">
+          <mat-hint align="end">minimum length: {{password1.value.length}} / 8 </mat-hint>
+        </mat-form-field>
+  
+        <mat-form-field class="max-width">
+          <mat-label>Password again</mat-label>
+          <input matInput type="password" name="password2" matInput #password2 minlength="8" placeholder="Password again" formControlName="password2">
+          <mat-hint align="end">minimum length: {{password2.value.length}} / 8</mat-hint>
+        
+        </mat-form-field>
+        
+<!--         <mat-chip-list></mat-chip-list>
+ -->        
+
+        <mat-chip-list *ngIf="error">
+          <mat-chip color="warn" class="max-width" style="margin-top: 16 px;" selected>
+            The two passwords are not matching!
+          </mat-chip>
+        </mat-chip-list>
+  
+        <br>
+        <div>
+          <button mat-button color="accent" [routerLink]="[ '/login' ]">Login</button>
+        </div>
+        <br>
+        <button type="submit" (click)="onSignUp(emailSignup.value,passwordSignup.value)" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid" >Register</button>
+  
+  
+      </form>
+  
+    </mat-card>
+  
+  
+  </div>

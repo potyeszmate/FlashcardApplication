@@ -1,0 +1,31 @@
+
+<!-- 
+<app-flashcard-card *ngFor="let item of list | async;" [flashcard] = "item"></app-flashcard-card>
+    <button mat-fab class="action-btn" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+</button> -->
+
+<!-- <app-container classes = "container-1 flex">
+</app-container> -->
+
+    <div *ngFor="let item of flashcards | async;">
+    
+        <app-flashcard-card  class="item" [flashcard] = "item"></app-flashcard-card>
+
+
+        <button mat-button (click)="updateFlashcard(item.id)" routerLinkActive="active">
+            <mat-icon>update icon</mat-icon>
+        </button>
+
+        <button mat-button (click)="deleteFlashcard(item.id)" routerLinkActive="active">
+            <mat-icon>delete icon</mat-icon>
+        </button>
+
+
+    </div>
+
+
+
+    <button mat-fab class="action-btn" (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+    </button>

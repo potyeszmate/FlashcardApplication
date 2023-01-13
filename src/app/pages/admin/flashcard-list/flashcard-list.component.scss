@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 17px;
+}
+
+app-movie-card, app-game-card, app-favorite-card{
+    min-width: 300px;
+    flex: 2;
+    margin: 10px;
+
+}
+
+.action-btn{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}

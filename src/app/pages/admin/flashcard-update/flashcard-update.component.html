@@ -1,0 +1,27 @@
+<form [formGroup] = "formUpdate">
+    <h3>Flashcards</h3>
+
+    <mat-form-field class="max-width">
+        <mat-label>Hungarian phrase</mat-label>
+        <input matInput placeholder="Hungarian phrase" focus formControlName="hunPhrase" required>
+    </mat-form-field>
+
+   <mat-form-field class="max-width">
+        <mat-label>English phrase</mat-label>
+        <textarea placeholder= "English phrase" formControlName="engPhrase" matInput cdkTextareaAutosize required
+        cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6" ></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="max-width">
+        <mat-label>Category</mat-label>
+        <textarea placeholder= "Category" formControlName="category" matInput cdkTextareaAutosize required
+        cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6" ></textarea>
+    </mat-form-field>
+
+    <div style="display: flex;justify-content:flex-end;">
+    <button mat-button (click)="dialogRef.close()" class="margin-right">Close</button>
+    <button mat-button [mat-dialog-close]="formUpdate.value" [disabled]="formUpdate.invalid" class="margin-right">UPDATE</button>
+
+    </div>
+
+</form>

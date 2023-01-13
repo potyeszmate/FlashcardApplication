@@ -1,0 +1,44 @@
+<mat-toolbar color= "primary" class="primary">
+    <mat-toolbar-row>
+  
+      <a mat-button routerLink="['/']">
+        Vocabulary Application
+      </a>
+
+      <button mat-button (click)="navUrl('/home/study')"  routerLinkActive="active">
+        Study Page&nbsp;
+        <mat-icon>school icon</mat-icon>
+      </button>
+
+      <button mat-button (click)="navUrl('/home/inquiry')" routerLinkActive="active">
+        Inquiery page&nbsp;
+        <mat-icon>book icon</mat-icon>
+      </button>
+
+      <div *ngIf="(auth.user | async)?.email === 'admin1@vocabapp.com' "> 
+        <button mat-button (click)="navUrl('/home/flashcardlist')" routerLinkActive="active">
+          Flashcard lsit&nbsp;
+          <mat-icon>dashboard icon</mat-icon>
+        </button>
+        </div>
+      
+
+      <button mat-button [mat-menu-trigger-for]="menu">
+        <span>{{ (auth.user | async)?.email }} </span>&nbsp;
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+  
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/profile']">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>arrow_back</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+  
+    </mat-toolbar-row>
+  
+  </mat-toolbar>
