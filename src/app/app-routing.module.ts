@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { CategoryModule } from './pages/category/category.module';
 import { AuthGuard } from './shared/guards/auth.guard';
 
 
@@ -17,12 +16,12 @@ const routes: Routes = [
 
   },
 
-  {
+  /* {
     path: 'category', 
     loadChildren: () => import('./pages/category/category.module').then(m => CategoryModule ),
     canActivate: [AuthGuard]
 
-  },
+  }, */
   
   {
   path: 'profile', 

@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { CategoryService } from 'src/service/category.service';
+import { GuessService } from 'src/service/guesses.service';
 
 interface Category {
   value: string;
@@ -29,8 +31,6 @@ export class FlashcardAddComponent {
   ];
 
 
-  selectedCategory: string ='Nothing';
-
   /* changeCategory(value:string) {
     this.selectedCategory = value;
     console.log(this.selectedCategory);
@@ -51,7 +51,16 @@ export class FlashcardAddComponent {
 
   });
 
-  constructor(public dialogRef: MatDialogRef<FlashcardAddComponent>) { }
+  constructor(public dialogRef: MatDialogRef<FlashcardAddComponent>, private categoryService: CategoryService) { }
+
+  selectedCategory: string ='Nothing';
+
+  changeCategory(value:string) {
+    this.selectedCategory = value;
+    console.log(this.selectedCategory);
+
+  }
+
 
 
   /*

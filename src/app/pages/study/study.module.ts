@@ -7,7 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { FlashcardCardModule } from '../admin/flashcard-card/flashcard-card.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { CategoryModule } from '../category/category.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -20,7 +21,9 @@ import { CategoryModule } from '../category/category.module';
     FlashcardCardModule,
     MatCardModule,
     ReactiveFormsModule,
-    CategoryModule    
+    MatFormFieldModule,
+    MatSelectModule
+    
   ],
   exports: [StudyComponent]
 })

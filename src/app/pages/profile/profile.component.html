@@ -1,27 +1,35 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <button mat-icon-buton [routerLink]="['/home']">
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-      <span>Profile</span>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-buton [routerLink]="['/home']">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>Profile page</span>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-  <!-- <div *ngIf="form" [formGroup]="form">
-    <mat-card class="margin-motton">
-      <mat-card-header>
-        <mat-card-title>Main informations</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item>
-            <mat-icon mat-list-icon>lock</mat-icon>
-            <div mat-line>Email address</div>
-            <br>
-            <div mat-line>{{ (afAuth.user | async)?.email }}</div>
-  
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
-</div> -->
+  <mat-card class="margin-motton">
+    <mat-card-header>
+      <mat-card-title>User information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon mat-list-icon>email</mat-icon>
+          <div mat-line>Email</div>
+          <br>
+          <div mat-line>{{ (afAuth.user | async)?.email }}</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon mat-list-icon>contacts icon</mat-icon>
+          <div mat-line>Username</div>
+          <br>
+          <div mat-line>Name</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>

@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { FlashcardAddComponent } from '../flashcard-add/flashcard-add.component';
 import { FlashcardUpdateComponent } from '../flashcard-update/flashcard-update.component';
 import { FbCrudService } from 'src/service/fb-crud.service';
-import { CategoryComponent } from '../../category/category.component';
 
 @Component({
   selector: 'app-flashcard-list',

@@ -8,7 +8,6 @@ import { FlashcardCardModule } from '../flashcard-card/flashcard-card.module';
 import { MatCardModule } from '@angular/material/card';
 import { FlashcardUpdateModule } from '../flashcard-update/flashcard-update.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CategoryModule } from '../../category/category.module';
 
 
 
@@ -26,7 +25,7 @@ import { CategoryModule } from '../../category/category.module';
     MatCardModule,
     FlashcardUpdateModule,
     ReactiveFormsModule,
-    CategoryModule
+    
   ],
   exports: [
     FlashcardListComponent

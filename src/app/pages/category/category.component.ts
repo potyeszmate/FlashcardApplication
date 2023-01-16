@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+/* import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Flashcard } from 'src/app/shared/modells/flashcard.model';
 import { FbCrudService } from 'src/service/fb-crud.service';
@@ -56,3 +56,4 @@ export class CategoryComponent {
   ////
 
 }
+ */

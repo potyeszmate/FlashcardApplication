@@ -1,0 +1,37 @@
+<!-- <mat-card *ngIf="flashcard">
+    <mat-card-header>
+        <mat-card-title>{{flashcard.category}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+    <p>{{flashcard.hunPhrase}}</p>
+    <p>{{flashcard.engPhrase}}</p>
+    
+
+    </mat-card-content>
+    
+    
+</mat-card> -->
+
+
+<div class="box">  
+    <mat-card *ngIf="flashcard">
+        <div class="tp-wrapper">
+            <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
+                
+
+                <div class="tp-box__side tp-box__front">
+                    
+                    <p>{{flashcard.hunPhrase}}</p>
+                </div>
+                <div class="tp-box__side tp-box__back">
+                    <p>{{flashcard.engPhrase}}</p>
+
+                </div>
+            </div>
+        </div>
+    </mat-card>
+    <div class="yourCssClass" *ngIf="this.areButtonsVisible && isFlipped" (click)="this.areButtonsVisible = false">
+        <button mat-flat-button (click)="correctValue()">I was correct</button>
+        <button mat-flat-button (click)="incorrectValue()">I was incorrect</button>
+    </div>  
+</div>  

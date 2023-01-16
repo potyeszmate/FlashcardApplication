@@ -1,1 +1,50 @@
-<p>inquiry works!</p>
+<div class="page-wrap">
+
+<br><br>
+<h2>Welcome to the Inquery page! Please select a category to test your knowledge!</h2>
+<mat-card>
+  <mat-form-field appearance="fill">
+    <mat-label>Select category</mat-label>
+    <mat-select (selectionChange)="changeCategory($event.value)">
+
+      <mat-option *ngFor="let category of categories" [value]="category.value">
+        {{category.categoryName}}
+      </mat-option>
+
+
+    </mat-select>
+  </mat-form-field>
+  Your selected category is: {{selectedCategory}}
+</mat-card>
+
+<br><br>
+
+    <div class="flashcard-container" *ngFor="let flashcard of flashcardlist | async , let i = index">
+        
+            <div *ngIf="flashcard.category === selectedCategory">
+                
+                <app-inquiry-card class="item" [flashcard]="flashcard"> </app-inquiry-card>
+                    
+                
+                {{itemCount()}}
+            </div>
+            
+    
+     
+  </div> 
+
+</div>
+
+<div *ngIf="items !== 0">
+
+<mat-card> 
+    <mat-card-content>
+        <p>Correct guesses:</p>
+        <p>{{ correctGuesses$ | async }}</p>
+        <br>
+        <p>Incorrect guesses:</p>
+        <p>{{ incorrectGuesses$ | async }}</p>
+    </mat-card-content>
+</mat-card>
+
+</div>

@@ -17,3 +17,21 @@ app-movie-card, app-game-card, app-favorite-card{
     bottom: 15px;
     right: 15px;
 }
+.item {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+
+  .card-container {
+    display: flex;
+  }
+  .center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }

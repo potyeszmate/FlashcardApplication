@@ -10,4 +10,9 @@ export class AppComponent {
   constructor(private titleService: TitleService){
     this.titleService.refreshTitle();
   }
+
+  //CRUD: Add and upgrade select category 
+  //Study page: filter card to categories, restore index when last in loop, isLast to boolean
+  //Inquiery page: restore values on select change, flex, wrap, left to to right
+
 }

@@ -14,7 +14,8 @@ import { NavigationModule } from '../navigation/navigation.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    NavigationModule
+    NavigationModule,
+    
   ]
 })
 export class HomeModule { }

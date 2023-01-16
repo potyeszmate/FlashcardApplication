@@ -1,0 +1,55 @@
+h2 {
+    text-align: center;
+  }
+  
+  mat-card {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .item {
+    margin: 10px;
+    padding : 5px;
+    min-width: 100px;
+    min-height: 50px;
+    vertical-align: top;
+
+  }
+
+  .center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .flashcard-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+}
+
+.flashcard-item {
+    flex: 1;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+.page-wrap:after {
+  height: 142px; 
+}
+
+
+  

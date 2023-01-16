@@ -9,3 +9,39 @@
     line-height: 50px;
     box-shadow: none;
 }
+
+
+.centering {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .log-card {
+    width: 300px;
+    padding: 20px;
+  }
+  
+
+  
+  .max-width {
+    width: 100%;
+  }
+  
+  .formGroup {
+    text-align: center;
+  }
+  
+  .googleBtn {
+    background-color: #4286f400;
+    color: rgba(255, 255, 255, 0);
+    border: none !important;
+  }
+  
+  .centerimg{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+  }

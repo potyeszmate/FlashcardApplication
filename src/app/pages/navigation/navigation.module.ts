@@ -10,9 +10,10 @@ import {MatMenuModule} from '@angular/material/menu';
 
 
 
+
 @NgModule({
   declarations: [
-    NavigationComponent
+    NavigationComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +21,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    RouterModule
+    RouterModule,
+
   ],
   exports: [
     NavigationComponent

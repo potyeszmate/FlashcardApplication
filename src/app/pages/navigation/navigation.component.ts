@@ -25,4 +25,7 @@ export class NavigationComponent {
     this.router.navigateByUrl(url);
   }
 
+  currentYear = new Date().getFullYear();
+
+
 }

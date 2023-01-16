@@ -1,1 +1,55 @@
-teszt
+<br><br>
+<h2>Welcome to the Study page! Please select a category to study!</h2>
+<mat-card>
+  <mat-form-field appearance="fill">
+    <mat-label>Select category</mat-label>
+    <mat-select (selectionChange)="changeCategory($event.value)">
+
+      <mat-option *ngFor="let category of categories" [value]="category.value">
+        {{category.categoryName}}
+      </mat-option>
+
+
+    </mat-select>
+  </mat-form-field>
+  Your selected category is: {{selectedCategory}}
+</mat-card>
+
+<br><br>
+
+
+<div class="center">
+ 
+  <!-- <div *ngFor="let flashcard of flashcardlist | async, let i = index, let last = last;">
+    
+    <div *ngIf="flashcard.category === selectedCategory">
+        <div *ngIf="selectedCard === i"> 
+            <app-flashcard-card  (click)="onCardClick(i)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
+        </div>
+    </div>
+    <br>
+     
+  </div>  -->
+
+  <ng-container *ngIf="flashcardlist | async as fcl">
+    <div *ngFor="let flashcard of fcl; let i = index; last as isLast">
+      <div *ngIf="selectedCard === i">  
+        <div *ngIf="flashcard.category === selectedCategory">
+                <app-flashcard-card  (click)="onCardClick(i)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
+            </div>
+        </div>
+
+        <!-- <div *ngIf="flashcardlist[i + 1].category !== selectedCategory">
+          {{onCardClick(i)}}      
+        </div> -->
+        <div *ngIf="isLast">
+          
+        </div>
+    </div>
+  </ng-container> 
+
+
+ <!--  <div *ngFor="let item of getFilteredItems(selectedCategory); let i = index" [hidden]="i !== currentIndex">
+    <app-flashcard-card  (click)="onCardClick(i)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
+  </div>
+</div> -->

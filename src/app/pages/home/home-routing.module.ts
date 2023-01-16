@@ -6,16 +6,16 @@ import { HomeComponent } from './home.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'category', pathMatch: 'full'},
+  {path: '', redirectTo: 'study', pathMatch: 'full'},
   {
     path: '', 
     component: HomeComponent,
     children: 
     [
-      {
+      /* {
         path: 'category', 
         loadChildren: () => import('./../category/category.module').then(m => m.CategoryModule)
-      },
+      }, */
       {
         path: 'study', 
         loadChildren: () => import('./../study/study.module').then(m => m.StudyModule)
