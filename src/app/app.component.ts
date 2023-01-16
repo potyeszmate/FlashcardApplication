@@ -12,7 +12,11 @@ export class AppComponent {
   }
 
   //CRUD: Add and upgrade select category 
-  //Study page: filter card to categories, restore index when last in loop, isLast to boolean
-  //Inquiery page: restore values on select change, flex, wrap, left to to right
+  //Study page: filter card to categories, restore index when last in loop to 0, isLast to boolean
+  //Inquiery page: restore values on select change
+  //CRUD, Inquiery: flex, wrap, left to to right
+  // better SCSS
+  //clean code
+  //other features
 
 }
