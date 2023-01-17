@@ -14,24 +14,29 @@
 
 
 <div class="box">  
-    <mat-card *ngIf="flashcard">
-        <div class="tp-wrapper">
-            <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
-                
-
-                <div class="tp-box__side tp-box__front">
+    <div class="inner-card">
+        <mat-card *ngIf="flashcard">
+            <div class="tp-wrapper">
+                <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
                     
-                    <p>{{flashcard.hunPhrase}}</p>
-                </div>
-                <div class="tp-box__side tp-box__back">
-                    <p>{{flashcard.engPhrase}}</p>
 
+                    <div class="tp-box__side tp-box__front">
+                        
+                        <p>{{flashcard.hunPhrase}}</p>
+                    </div>
+                    <div class="tp-box__side tp-box__back">
+                        <p>{{flashcard.engPhrase}}</p>
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </mat-card>
-    <div class="yourCssClass" *ngIf="this.areButtonsVisible && isFlipped" (click)="this.areButtonsVisible = false">
-        <button mat-flat-button (click)="correctValue()">I was correct</button>
-        <button mat-flat-button (click)="incorrectValue()">I was incorrect</button>
-    </div>  
+        </mat-card>
+        <div class="buttons">
+            <div *ngIf="this.areButtonsVisible && isFlipped" (click)="this.areButtonsVisible = false">
+            
+                <button mat-flat-button (click)="correctValue()">I was correct</button>
+                <button mat-flat-button (click)="incorrectValue()">I was incorrect</button>
+            </div>
+        </div>  
+    </div>
 </div>  
