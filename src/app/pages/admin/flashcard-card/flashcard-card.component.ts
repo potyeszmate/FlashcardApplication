@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Flashcard } from 'src/app/shared/modells/flashcard.model';
 
 @Component({
@@ -8,7 +8,21 @@ import { Flashcard } from 'src/app/shared/modells/flashcard.model';
 })
 export class FlashcardCardComponent implements OnInit {
 
-  @Input() flashcard?: Flashcard
+/*   @Input() flashcard?: Flashcard
+ */  
+  @Input() flashcard: Flashcard = {} as any;
+
+  @Input() hasAction = true;
+
+  @Output() callFav = new EventEmitter<Flashcard>();
+
+  toggleStar(event: any): void
+  {
+    //event.stopPropagation();
+    this.flashcard.star = !this.flashcard?.star;
+    this.callFav.emit(this.flashcard);
+  }
+
   constructor() { }
 
   ngOnInit(): void {

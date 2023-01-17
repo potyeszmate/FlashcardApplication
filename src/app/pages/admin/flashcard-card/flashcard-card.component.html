@@ -1,5 +1,5 @@
 <div class="card-container"> 
-    <mat-card class="card" *ngIf="flashcard">
+    <mat-card class="card-container" class="card" *ngIf="flashcard">
         <img mat-card-image src="https://blog.langavia.com/wp-content/uploads/2022/05/multipurpouse-flashcards.jpg" alt="Card image">
         
         <mat-card-content>
@@ -8,8 +8,14 @@
             <p>{{flashcard.hunPhrase}}</p>
             <p>{{flashcard.engPhrase}}</p>
         </mat-card-content>
-        <!-- <mat-card-actions>
-          <button mat-button>Like</button>
-          <button mat-button>Share</button>
-        </mat-card-actions> -->
+
+        <mat-card-actions *ngIf="hasAction" (click)="toggleStar($event)">
+          <button mat-button>
+              <mat-icon *ngIf="flashcard.star;else star" style="color: rgb(255, 242, 0);">star</mat-icon>
+              <ng-template #star>
+                  <mat-icon>star_outline</mat-icon>
+              </ng-template>
+          </button>
+      </mat-card-actions>
+        
       </mat-card>

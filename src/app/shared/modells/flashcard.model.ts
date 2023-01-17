@@ -3,4 +3,6 @@ export interface Flashcard {
     hunPhrase: string;
     engPhrase: string;
     category: string;
+    star?:boolean;
+
     }

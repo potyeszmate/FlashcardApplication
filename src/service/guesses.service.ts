@@ -23,5 +23,12 @@ export class GuessService {
       this.incorrectSubject.next(this.incorrectSubject.getValue() + 1);
 
       //this.incorrectValue++;
+    }
+
+    refreshValues() {
+      this.correctSubject.next(this.correctSubject.getValue() * 0);
+      this.incorrectSubject.next(this.incorrectSubject.getValue() * 0);
+
+      //this.incorrectValue++;
       }
 }

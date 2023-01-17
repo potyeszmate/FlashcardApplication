@@ -34,6 +34,8 @@ export class InquiryComponent {
     this.selectedCategory = value;
     console.log(this.selectedCategory);
 
+    this.guessService.refreshValues();
+
   }
 
   correctGuesses$: Observable<number>;
@@ -83,6 +85,7 @@ export class InquiryComponent {
 
   itemCount(){
     this.items++;
+    console.log(this.items);
   }
 
 

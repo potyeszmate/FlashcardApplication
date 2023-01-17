@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -9,6 +9,12 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class FlashcardUpdateComponent {
 
+
+  constructor(public dialogRef: MatDialogRef<FlashcardUpdateComponent>) { }
+
+  categories = ['Human', 'Work', 'Study','Hobby', 'Sport', 'Food','Politics'];
+
+
   formUpdate: FormGroup = new FormGroup({
     id: new FormControl(''),
     hunPhrase: new FormControl(''),
@@ -18,7 +24,16 @@ export class FlashcardUpdateComponent {
 
   });
 
-  constructor(public dialogRef: MatDialogRef<FlashcardUpdateComponent>) { }
+  selectedCategory: string ='Sport';
+
+  changeCategory(value:string) {
+    this.selectedCategory = value;
+    console.log(this.selectedCategory);
+    console.log(typeof this.selectedCategory);
+
+
+  }
+
 
 
 }

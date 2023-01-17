@@ -19,32 +19,30 @@
 
 <br><br>
 
+<div class="center">
     <div class="flashcard-container" *ngFor="let flashcard of flashcardlist | async , let i = index">
         
             <div *ngIf="flashcard.category === selectedCategory">
                 
-                <app-inquiry-card class="item" [flashcard]="flashcard"> </app-inquiry-card>
-                    
+                <app-inquiry-card class="item" [flashcard]="flashcard"> </app-inquiry-card>      
                 
-                {{itemCount()}}
-            </div>
-            
-    
-     
-  </div> 
-
+                 {{itemCount()}}
+                   
+            </div>             
+    </div> 
 </div>
 
+<br>
 <div *ngIf="items !== 0">
 
-<mat-card> 
-    <mat-card-content>
-        <p>Correct guesses:</p>
-        <p>{{ correctGuesses$ | async }}</p>
-        <br>
-        <p>Incorrect guesses:</p>
-        <p>{{ incorrectGuesses$ | async }}</p>
-    </mat-card-content>
-</mat-card>
+  <mat-card> 
+      <mat-card-content>
+          <p>Correct guesses:</p>
+          <p>{{ correctGuesses$ | async }}</p>
+          <br>
+          <p>Incorrect guesses:</p>
+          <p>{{ incorrectGuesses$ | async }}</p>
+      </mat-card-content>
+  </mat-card>
 
 </div>

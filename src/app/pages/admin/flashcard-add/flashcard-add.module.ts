@@ -22,7 +22,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
-    ReactiveFormsModule
+
   ],
   exports: [
     FlashcardAddComponent,

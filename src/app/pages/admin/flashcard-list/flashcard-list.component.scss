@@ -16,22 +16,72 @@ app-movie-card, app-game-card, app-favorite-card{
     position: fixed;
     bottom: 15px;
     right: 15px;
+
+    width: 70px;
+    height: 60px;
+    background-color: hsl(340, 63%, 43%);
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 7px;
+    &:hover {
+        background-color: #eb236f;
+    }
 }
-.item {
-    display: inline-block;
-    margin: 10px;
-  }
+
   
   button {
-    margin-left: 10px;
+    margin-left: 20px;
   }
 
   .card-container {
     display: flex;
   }
+ 
+
+  h2 {
+    text-align: center;
+  }
+  
+  mat-card {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .item {
+    display: inline-block;
+    margin: 10px;
+  }
+
   .center{
     display: flex;
     align-items: center;
     justify-content: center;
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15%;
     
+  }
+
+  .buttons{
+    margin-left: 20%;
+    display: block;
+
+
+  }
+
+  @media (max-width: 600px) {
+    .mat-card {
+      width: 90%;
+      margin: 0 auto;
+      float: left;
+      clear: none;
+    }
+    .card-container {
+      width: 100%;
+      overflow: auto;
+    }
   }

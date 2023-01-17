@@ -11,12 +11,17 @@ export class AppComponent {
     this.titleService.refreshTitle();
   }
 
-  //CRUD: Add and upgrade select category 
-  //Study page: filter card to categories, restore index when last in loop to 0, isLast to boolean
-  //Inquiery page: restore values on select change
-  //CRUD, Inquiery: flex, wrap, left to to right
-  // better SCSS
   //clean code
-  //other features
+
+  //Study page: filter card to categories, restore index when last in loop to 0, isLast to boolean
+  //favourite flashcards - correct it, connect with firebase
+  //Inquiery: only 10 cards view, when clicked all, next (?)
+
+  //CRUD: Edit - show old values
+  //CRUD: no stars
+  //mobile view
+  
+  //profile page- name (?)
+  //upload image?
 
 }

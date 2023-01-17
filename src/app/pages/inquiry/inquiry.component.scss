@@ -11,27 +11,20 @@ h2 {
     width: 100%;
   }
   
-  .item {
+/*   .item {
     margin: 10px;
     padding : 5px;
     min-width: 100px;
     min-height: 50px;
     vertical-align: top;
 
-  }
+  } */
 
-  .center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  }
-
-  .flashcard-container {
+/*   .flashcard-container {
     display: flex;
     flex-wrap: wrap;
     width: 800px;
-}
+} */
 
 .flashcard-item {
     flex: 1;
@@ -52,4 +45,14 @@ h2 {
 }
 
 
+.item {
+  display: inline-block;
+  margin: 10px;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
+}

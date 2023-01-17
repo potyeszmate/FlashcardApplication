@@ -34,3 +34,27 @@
     flex: 1;
     margin: 10px;
   }
+
+  p {
+    font-size: 19px;
+    font-family: Arial, sans-serif;
+    color: rgb(255, 255, 255);
+    line-height: 1.5;
+    margin-bottom: 1em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+  .mat-card {
+    width: 90%;
+    margin: 0 auto;
+    float: left;
+    clear: none;
+  }
+  .card-container {
+    width: 100%;
+    overflow: auto;
+  }
+}

@@ -12,11 +12,20 @@
         cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6" ></textarea>
     </mat-form-field>
 
-    <mat-form-field class="max-width">
+    <!-- <mat-form-field class="max-width">
         <mat-label>Category</mat-label>
         <textarea placeholder= "Category" formControlName="category" matInput cdkTextareaAutosize required
         cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6" ></textarea>
-    </mat-form-field>
+    </mat-form-field> -->
+
+    <mat-form-field class="max-width" appearance="fill">
+        <mat-label>Select category</mat-label>       
+        <mat-select formControlName="category" (selectionChange)="changeCategory($event.value)" >
+          <mat-option *ngFor="let category of categories"  [value]="category">
+            {{category}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> 
 
     <div style="display: flex;justify-content:flex-end;">
     <button mat-button (click)="dialogRef.close()" class="margin-right">Close</button>

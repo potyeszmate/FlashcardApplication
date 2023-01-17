@@ -8,7 +8,7 @@
 <!-- <app-container classes = "container-1 flex">
 </app-container> -->
 
-    <div *ngFor="let item of flashcards | async;" class="center">
+    <!-- <div *ngFor="let item of flashcards | async;" class="center">
     
         <app-flashcard-card  class="item" [flashcard] = "item"></app-flashcard-card>
 
@@ -22,6 +22,32 @@
         </button>
 
 
+    </div> -->
+
+
+    <div class="center">
+        
+        <div class="inner-card" *ngFor="let item of flashcards | async;">
+          
+                <br><br>
+                <app-flashcard-card class="card-container" class="item" [flashcard]="item"> </app-flashcard-card>
+        
+                <br>
+            
+            <div class="buttons">
+                <br>
+                <button mat-button (click)="updateFlashcard(item.id)" routerLinkActive="active">
+                    <mat-icon>edit icon</mat-icon>
+                </button>
+
+                <button mat-button (click)="deleteFlashcard(item.id)" routerLinkActive="active">
+                    <mat-icon>delete icon</mat-icon>
+                </button>
+            </div>
+
+            <br><br>
+           
+        </div> 
     </div>
 
 

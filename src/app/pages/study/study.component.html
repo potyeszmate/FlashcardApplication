@@ -18,35 +18,37 @@
 <br><br>
 
 
-<div class="center">
- 
-  <!-- <div *ngFor="let flashcard of flashcardlist | async, let i = index, let last = last;">
+  <div class="center">
     
-    <div *ngIf="flashcard.category === selectedCategory">
-        <div *ngIf="selectedCard === i"> 
-            <app-flashcard-card  (click)="onCardClick(i)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
+      <div class="inner-card"  *ngFor="let flashcard of flashcardlist | async, let i = index, let last = last;">
+      
+        <div *ngIf="flashcard.category === selectedCategory">
+          <!-- <div *ngIf="selectedCard === i"> 
+              
+          </div> -->
+         
+          <app-flashcard-card (click)="onCardClick(i)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
+        
         </div>
-    </div>
-    <br>
-     
-  </div>  -->
-
-  <ng-container *ngIf="flashcardlist | async as fcl">
+      </div>
+      <br>
+      
+    </div>  
+ 
+  <!-- <ng-container *ngIf="flashcardlist | async as fcl">
     <div *ngFor="let flashcard of fcl; let i = index; last as isLast">
       <div *ngIf="selectedCard === i">  
         <div *ngIf="flashcard.category === selectedCategory">
-                <app-flashcard-card  (click)="onCardClick(i)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
+                <app-flashcard-card  (click)="onCardClick(i)" (callFav)="onFavorite($event)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
             </div>
         </div>
 
-        <!-- <div *ngIf="flashcardlist[i + 1].category !== selectedCategory">
+        <div *ngIf="flashcardlist[i + 1].category !== selectedCategory">
           {{onCardClick(i)}}      
-        </div> -->
-        <div *ngIf="isLast">
-          
-        </div>
+        </div> 
+        
     </div>
-  </ng-container> 
+  </ng-container> --> 
 
 
  <!--  <div *ngFor="let item of getFilteredItems(selectedCategory); let i = index" [hidden]="i !== currentIndex">

@@ -1,0 +1,12 @@
+
+<div class="center">
+ 
+    <div class="inner-card" *ngFor="let item of favorites | async;">
+      
+        <br><br>
+          <app-flashcard-card class="item" [flashcard]="item"> </app-flashcard-card>
+
+      <br><br>
+       
+    </div> 
+</div>

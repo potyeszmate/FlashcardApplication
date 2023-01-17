@@ -31,6 +31,7 @@ export class FbCrudService {
     const uid = id ? id: this.afs.createId();
     data.id = uid;
     await this.afs.collection(collectionName).doc(uid).set(data);
+    
     return uid;
   }
   

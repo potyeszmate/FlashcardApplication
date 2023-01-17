@@ -100,4 +100,18 @@ export class StudyComponent {
   }
 
 
+  favorites: Flashcard[] = [];
+
+
+  onFavorite(event: Flashcard): void{
+
+    console.log(event);
+
+    if(event?.star){
+      this.favorites.push(event);
+    }
+    this.favorites = this.favorites.filter(item => item.star)
+  }
+
+
 }

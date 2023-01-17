@@ -28,7 +28,12 @@ const routes: Routes = [
         path: 'flashcardlist', 
         loadChildren: () => import('./../admin/flashcard-list/flashcard-list.module').then(m => m.FlashcardListModule)
         
-    },
+      },
+      {
+        path: 'favoritecards', 
+        loadChildren: () => import('./../favorite-card/favorite-card.module').then(m => m.FavoriteCardModule)
+        
+      },
                      
     ],
     canActivateChild: [AuthGuard]

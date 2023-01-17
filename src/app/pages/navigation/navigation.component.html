@@ -7,19 +7,25 @@
       </a>
 
       <button mat-button (click)="navUrl('/home/study')"  routerLinkActive="active">
-        Study page&nbsp;
+        Study&nbsp;
         <mat-icon>school icon</mat-icon>
       </button>
 
       <button mat-button (click)="navUrl('/home/inquiry')" routerLinkActive="active">
-        Inquiery page&nbsp;
+        Inquiery&nbsp;
         <mat-icon>book icon</mat-icon>
       </button>
 
+      <button mat-button (click)="navUrl('/home/favoritecards')" routerLinkActive="active">
+        Cards to study&nbsp;
+        <mat-icon>star icon</mat-icon>
+      </button>
+
+      <!-- only for admin email (bad solution) -->
       <div *ngIf="(auth.user | async)?.email === 'admin1@vocabapp.com' "> 
         <button mat-button (click)="navUrl('/home/flashcardlist')" routerLinkActive="active">
-          Flashcard CRUD page&nbsp;
-          <mat-icon>dashboard icon</mat-icon>
+          Flashcard CRUD&nbsp;
+          <mat-icon>edit icon</mat-icon>
         </button>
         </div>
       

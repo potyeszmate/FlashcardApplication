@@ -65,10 +65,10 @@ export class LoginComponent implements OnInit {
     this.authService.googleAuth()
   }
 
-  /* facebookLogin() {
+   facebookLogin() {
     this.authService.loginWithFacebook()
   }
- */
+ 
 
   navTo(url: string)
   {

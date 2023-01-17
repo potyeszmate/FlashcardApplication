@@ -1,14 +1,15 @@
+import { SelectionChange } from '@angular/cdk/collections';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormArray } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CategoryService } from 'src/service/category.service';
-import { GuessService } from 'src/service/guesses.service';
 
-interface Category {
+
+/* interface Category {
   value: string;
   categoryName: string;
 }
-
+ */
 @Component({
   selector: 'app-flashcard-add',
   templateUrl: './flashcard-add.component.html',
@@ -18,7 +19,11 @@ export class FlashcardAddComponent {
 
   @Output() onSelected = new EventEmitter<any>();
 
-  categories: Category[] = [
+
+  constructor(public dialogRef: MatDialogRef<FlashcardAddComponent>, private categoryService: CategoryService) { }
+
+
+  /* categories: Category[] = [
     {value: 'Human', categoryName: 'Human'},
     {value: 'Work', categoryName: 'Work'},
     {value: 'Study', categoryName: 'Study'},
@@ -28,7 +33,7 @@ export class FlashcardAddComponent {
     {value: 'Politics', categoryName: 'Politics'},
 
 
-  ];
+  ]; */
 
 
   /* changeCategory(value:string) {
@@ -42,6 +47,9 @@ export class FlashcardAddComponent {
     this.onSelected.emit(product);
   }
 
+
+  categories = ['Human', 'Work', 'Study','Hobby', 'Sport', 'Food','Politics'];
+
   form: FormGroup = new FormGroup({
     id: new FormControl(''),
     hunPhrase: new FormControl(''),
@@ -51,13 +59,14 @@ export class FlashcardAddComponent {
 
   });
 
-  constructor(public dialogRef: MatDialogRef<FlashcardAddComponent>, private categoryService: CategoryService) { }
 
-  selectedCategory: string ='Nothing';
+  selectedCategory: string ='Sport';
 
   changeCategory(value:string) {
     this.selectedCategory = value;
     console.log(this.selectedCategory);
+    console.log(typeof this.selectedCategory);
+
 
   }
 
