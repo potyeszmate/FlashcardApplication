@@ -34,8 +34,9 @@
         <div class="buttons">
             <div *ngIf="this.areButtonsVisible && isFlipped" (click)="this.areButtonsVisible = false">
             
-                <button mat-flat-button (click)="correctValue()">I was correct</button>
-                <button mat-flat-button (click)="incorrectValue()">I was incorrect</button>
+                <button class="btn" mat-flat-button (click)="correctValue()">I was correct</button>
+                
+                <button class="btn" mat-flat-button (click)="incorrectValue()">I was incorrect</button>
             </div>
         </div>  
     </div>

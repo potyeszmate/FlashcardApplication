@@ -1,6 +1,9 @@
+import { FbCrudService } from 'src/service/fb-crud.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Flashcard } from 'src/app/shared/modells/flashcard.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-flashcard-update',
@@ -9,8 +12,19 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class FlashcardUpdateComponent {
 
+  hunPhrase:string ="";
+  engPhrase:string ="";
+  selected:string ="Non";
 
-  constructor(public dialogRef: MatDialogRef<FlashcardUpdateComponent>) { }
+
+
+  constructor(public dialogRef: MatDialogRef<FlashcardUpdateComponent>,private flashcardService: FbCrudService) {
+    this.hunPhrase = flashcardService.hunPhrase;
+    this.engPhrase = flashcardService.engPhrase;
+    this.selected = flashcardService.category;
+
+
+   }
 
   categories = ['Human', 'Work', 'Study','Hobby', 'Sport', 'Food','Politics'];
 

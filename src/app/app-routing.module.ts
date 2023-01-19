@@ -5,7 +5,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
 
-  {path: '', redirectTo: 'registration', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
 
   //routers Login, Register, Home Admin
 
@@ -41,7 +41,7 @@ const routes: Routes = [
   {
     path: '**', 
     redirectTo: "home",
-    pathMatch: 'full'
+    pathMatch: 'full',
   }
 ];
 

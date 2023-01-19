@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { Flashcard } from 'src/app/shared/modells/flashcard.model';
 import { FbCrudService } from 'src/service/fb-crud.service';
 import { GuessService } from 'src/service/guesses.service';
+
+import { filter, take } from 'rxjs/operators';
+
 
 interface Category {
   value: string;
@@ -36,6 +39,26 @@ export class InquiryComponent {
 
     this.guessService.refreshValues();
 
+    this.flashcardlist = this.service.get("flashcards");
+    this.flashcardlist.subscribe(data => {
+      let count = 0;
+      let tempArray: Flashcard[] = []
+      for(let flashcard of data) {
+          if(flashcard.category === this.selectedCategory) {
+              tempArray.push(flashcard);
+              count++;
+              console.log(count);
+
+              if(count === 10) {
+                  break;
+              }
+          }
+      }
+      this.filteredAndSlicedList = tempArray.length > 0 ? of(tempArray) : null;
+      //console.log(tempArray.length);
+
+    });
+
   }
 
   correctGuesses$: Observable<number>;
@@ -48,7 +71,12 @@ export class InquiryComponent {
 
    }
 
+
+
   flashcardlist: Observable<Flashcard[]> | null = null;
+  filteredAndSlicedList: Observable<Flashcard[]> | null = null;
+
+
   flashcard: Observable<Flashcard> | null = null;
 
   //category? = '';
@@ -58,7 +86,23 @@ export class InquiryComponent {
   ngOnInit(): void {
     //this.category = '';
     this.getFlashcards();
-  }
+    
+    }
+    //filtering
+    
+
+    /* this.flashcardlist.pipe(
+        filter(flashcard => flashcard.category === this.selectedCategory),
+        take(10)
+    ).subscribe(data => this.filteredAndSlicedList = data);
+    } */
+
+    //this.flashcardlist = this.service.get("flashcards");
+
+
+
+  
+    
 
   getFlashcards() :void{
     this.flashcardlist = this.service.get('flashcards');
@@ -81,13 +125,12 @@ export class InquiryComponent {
 
   buttonPressed: boolean = false;
  
-  items = 0;
+  isItem: boolean = false;
 
   itemCount(){
-    this.items++;
-    console.log(this.items);
+    this.isItem = true;
+    //console.log(this.items);
   }
-
 
   
 }

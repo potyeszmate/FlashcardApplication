@@ -58,4 +58,19 @@ export class FbCrudService {
 
   }
 
+  public flashcardId: string = "";
+  public engPhrase: string = "";
+  public hunPhrase: string = "";
+  public category: string = "";
+
+
+
+  setFlashcard(id: string,engPhrase: string, hunPhrase: string,category: string) {
+    this.flashcardId = id;
+    this.engPhrase = engPhrase;
+    this.hunPhrase = hunPhrase;
+    this.category = category;
+
+  }
+
 }

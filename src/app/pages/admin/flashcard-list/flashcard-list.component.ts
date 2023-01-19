@@ -17,6 +17,7 @@ export class FlashcardListComponent implements  OnInit, OnDestroy {
 
   flashcards: Observable<Flashcard[]> | null = null;
   //category? = '';
+  flashcard: Observable<Flashcard> | null = null;
 
 
 
@@ -68,8 +69,9 @@ export class FlashcardListComponent implements  OnInit, OnDestroy {
 
   updateFlashcard(id: string): void 
   {
-
+    this.service.getById('flashcards',id);
     const dialogRef = this.dialog.open(FlashcardUpdateComponent, {
+      
       //height: '400px',
       //width: '600px',
     });
@@ -89,5 +91,20 @@ export class FlashcardListComponent implements  OnInit, OnDestroy {
       console.warn(err);
     });
   }
+
+  /* selectItem(id: string) {
+    this.service.setItemId(id);
+  } */
+
+  selectFlashcard(id: string,engPhrase: string,hunPhrase: string,category: string){
+    this.service.setFlashcard(id,engPhrase,hunPhrase,category);
+    console.log(this.service.hunPhrase);
+    console.log(this.service.engPhrase);
+  }
+
+
+
+
+
 
 }

@@ -32,11 +32,11 @@
                 <br><br>
                 <app-flashcard-card class="card-container" class="item" [flashcard]="item"> </app-flashcard-card>
         
-                <br>
+                
             
             <div class="buttons">
-                <br>
-                <button mat-button (click)="updateFlashcard(item.id)" routerLinkActive="active">
+                
+                <button mat-button (click)="updateFlashcard(item.id)" (click)="selectFlashcard(item.id,item.engPhrase,item.hunPhrase,item.category)" routerLinkActive="active">
                     <mat-icon>edit icon</mat-icon>
                 </button>
 
@@ -45,7 +45,7 @@
                 </button>
             </div>
 
-            <br><br>
+            
            
         </div> 
     </div>

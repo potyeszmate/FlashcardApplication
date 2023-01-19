@@ -13,13 +13,13 @@ export class AppComponent {
 
   //clean code
 
-  //Study page: filter card to categories, restore index when last in loop to 0, isLast to boolean
-  //favourite flashcards - correct it, connect with firebase
-  //Inquiery: only 10 cards view, when clicked all, next (?)
+  //Study page: restore index when last in loop to 0
+  
+  //Inquiery: next 10 
 
   //CRUD: Edit - show old values
-  //CRUD: no stars
-  //mobile view
+
+
   
   //profile page- name (?)
   //upload image?

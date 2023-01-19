@@ -20,28 +20,31 @@
 <br><br>
 
 <div class="center">
-    <div class="flashcard-container" *ngFor="let flashcard of flashcardlist | async , let i = index">
+    <div class="flashcard-container" *ngFor="let flashcard of filteredAndSlicedList | async, let i = index">
         
-            <div *ngIf="flashcard.category === selectedCategory">
-                
+            <!-- <div *ngIf="flashcard.category === selectedCategory">
+            </div>   -->
+                <br><br>
                 <app-inquiry-card class="item" [flashcard]="flashcard"> </app-inquiry-card>      
                 
                  {{itemCount()}}
                    
-            </div>             
+                       
     </div> 
 </div>
 
 <br>
-<div *ngIf="items !== 0">
+<div class="buckets" *ngIf="isItem">
 
   <mat-card> 
       <mat-card-content>
+        <br>
           <p>Correct guesses:</p>
           <p>{{ correctGuesses$ | async }}</p>
           <br>
           <p>Incorrect guesses:</p>
-          <p>{{ incorrectGuesses$ | async }}</p>
+          <p >{{ incorrectGuesses$ | async }}</p>
+
       </mat-card-content>
   </mat-card>
 

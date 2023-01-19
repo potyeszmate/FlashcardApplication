@@ -1,40 +1,46 @@
 
 <mat-toolbar color= "primary" class="primary">
-    <mat-toolbar-row>
-  
-      <a mat-button (click)="navUrl('/home/study')">
-        Flashcard Application
+  <mat-toolbar-row>
+    <div>
+      <a>
+        <img class="primary-icon" src="https://cdn-icons-png.flaticon.com/512/6587/6587388.png">
       </a>
+    </div>
+    <a mat-button (click)="navUrl('/home/study')">
+      Flashcard Application
+    </a>
 
-      <button mat-button (click)="navUrl('/home/study')"  routerLinkActive="active">
-        Study&nbsp;
-        <mat-icon>school icon</mat-icon>
+    <button mat-button (click)="navUrl('/home/study')"  routerLinkActive="active">
+      Study&nbsp;
+      <mat-icon>school icon</mat-icon>
+    </button>
+
+    <button mat-button (click)="navUrl('/home/inquiry')" routerLinkActive="active">
+      Inquiry&nbsp;
+      <mat-icon>book icon</mat-icon>
+    </button>
+
+    <!-- <button mat-button (click)="navUrl('/home/favoritecards')" routerLinkActive="active">
+      Cards to study&nbsp;
+      <mat-icon>star icon</mat-icon>
+    </button> -->
+
+    <!-- only for admin email (bad solution) -->
+    <div *ngIf="(auth.user | async)?.email === 'admin1@vocabapp.com' "> 
+      <button mat-button (click)="navUrl('/home/flashcardlist')" routerLinkActive="active">
+        Flashcard CRUD&nbsp;
+        <mat-icon>edit icon</mat-icon>
       </button>
+    </div>
+    
+  
+    <div class = "right"> 
 
-      <button mat-button (click)="navUrl('/home/inquiry')" routerLinkActive="active">
-        Inquiery&nbsp;
-        <mat-icon>book icon</mat-icon>
-      </button>
-
-      <button mat-button (click)="navUrl('/home/favoritecards')" routerLinkActive="active">
-        Cards to study&nbsp;
-        <mat-icon>star icon</mat-icon>
-      </button>
-
-      <!-- only for admin email (bad solution) -->
-      <div *ngIf="(auth.user | async)?.email === 'admin1@vocabapp.com' "> 
-        <button mat-button (click)="navUrl('/home/flashcardlist')" routerLinkActive="active">
-          Flashcard CRUD&nbsp;
-          <mat-icon>edit icon</mat-icon>
-        </button>
-        </div>
-      
-    <div class="right"> 
       <button mat-button [mat-menu-trigger-for]="menu">
         <span>{{ (auth.user | async)?.email }} </span>&nbsp;
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
-  
+
       <mat-menu #menu="matMenu">
         <button mat-menu-item [routerLink]="['/profile']">
           <mat-icon>person</mat-icon>
@@ -45,18 +51,57 @@
           <span>Logout</span>
         </button>
       </mat-menu>
-      </div>
-    </mat-toolbar-row>
   
-  </mat-toolbar>
+    </div>
+
+    <div class = "rightGrid"> 
+      <div class="gridbutton" [mat-menu-trigger-for]="hamburger">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+      </div>
+
+
+      <mat-menu class="gridbutton" #hamburger="matMenu">
+        <button class="gridbutton" mat-menu-item (click)="navUrl('/home/study')"  routerLinkActive="active">
+          Study&nbsp;
+          <mat-icon>school icon</mat-icon>
+        </button>
+      
+        <button class="gridbutton" mat-menu-item (click)="navUrl('/home/inquiry')" routerLinkActive="active">
+          Inquiery&nbsp;
+          <mat-icon>book icon</mat-icon>
+        </button>
+      
+        <!-- <button class="gridbutton" mat-menu-item (click)="navUrl('/home/favoritecards')" routerLinkActive="active">
+          Cards to study&nbsp;
+          <mat-icon>star icon</mat-icon>
+        </button> -->
+      
+        <!-- only for admin email (bad solution) -->
+
+        <div *ngIf="(auth.user | async)?.email === 'admin1@vocabapp.com' "> 
+          <button class="gridbutton" mat-menu-item (click)="navUrl('/home/flashcardlist')" routerLinkActive="active">
+            Flashcard CRUD&nbsp;
+            <mat-icon>edit icon</mat-icon>
+          </button>
+        </div>
+
+    
+
+      </mat-menu>
+  </div>
+  
+ </mat-toolbar-row>
+</mat-toolbar>
 
 
 <!--   <footer class="site-footer">
-    <mat-toolbar color= "primary" class="center">  
-      <p class="center">
-        © 2020 Copyright:
-      </p>
-  </mat-toolbar>
-  </footer>
+  <mat-toolbar color= "primary" class="center">  
+    <p class="center">
+      © 2020 Copyright:
+    </p>
+</mat-toolbar>
+</footer>
 
- -->
+-->

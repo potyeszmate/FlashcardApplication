@@ -52,7 +52,7 @@ app-movie-card, app-game-card, app-favorite-card{
     width: 100%;
   }
   
-  .item {
+ /*  .item {
     display: inline-block;
     margin: 10px;
   }
@@ -65,7 +65,7 @@ app-movie-card, app-game-card, app-favorite-card{
     grid-template-columns: 15% 15% 15% 15%;
     
   }
-
+ */
   .buttons{
     margin-left: 20%;
     display: block;
@@ -73,15 +73,52 @@ app-movie-card, app-game-card, app-favorite-card{
 
   }
 
-  @media (max-width: 600px) {
-    .mat-card {
-      width: 90%;
-      margin: 0 auto;
-      float: left;
-      clear: none;
-    }
-    .card-container {
-      width: 100%;
-      overflow: auto;
+/*   @media screen and (max-width: 1300px) {
+    .center {
+      
+      display: grid;
+      grid-template-columns: 30% 30%;
     }
   }
+  
+  @media screen and (max-width: 700px) {
+    .center {
+      display: grid;
+      grid-template-columns: 50%;
+    }
+  } */
+
+  .item {
+    display: inline-block;
+    margin: 30px;
+    width: 200px;
+    height: 100px;
+    margin-bottom: 90%;
+  
+  }
+  
+  .center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    
+    
+  }
+  
+   @media screen and (max-width: 900px) {
+    .center {
+      flex-direction: column;
+    }
+  }
+  
+/*   
+  @media screen and (max-width: 1100px) {
+    .center {
+    flex-direction: column;
+    }
+  }
+   */

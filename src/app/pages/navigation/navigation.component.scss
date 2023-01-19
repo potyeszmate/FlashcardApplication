@@ -6,6 +6,7 @@
 a[mat-button]
 {
     font-size: xx-large;
+    display: inline-block;
 }
 
 .active {
@@ -13,43 +14,67 @@ a[mat-button]
     border-radius: 0;
 }
 
+button:hover
+{
+    color: rgb(222, 239, 67);
+}
+
+
 mat-toolbar {
+    background-color: rgb(222, 239, 67);
+    display: flex;
+    justify-content: space-around;
+    /* 
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    z-index: 100;
+    z-index: 100; */
 
 }
+
+.mat-menu-content{
+    background-color: rgba(249, 237, 72, 0.849);
+ }
+
+ .primary-icon{
+    height: 40px;
+    margin-top: 25%;
+ }
+
+ .menu-line{
+    width: 27px;
+    height: 3.5px;
+    background-color: white;
+    margin-bottom: 4px;
+ }
+
+/*  .menu{
+    display: none;
+ }
+
+ @media all and (max-width: 480px){
+    mat-toolbar{
+        flex-direction: column;
+    }
+    .menu{
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+     }
+ } */
 
 /* [mat-button]
 {
     text-transform: capitalize;
 }
  */
-.mat-menu-content{
-    background-color: rgb(0, 132, 255);
- }
-
- .right {
-    position: absolute;
-    right: 0px;
-    width: 300px;
-    padding: 10px;
-  }
-
-  footer {
-    background-color: black;
-    color: white;
-    position: sticky;
-    bottom: 0;
-    left:0; 
-    width:100%;
-    inset: auto 0 0 0;
-
-  }
 
 
-.center{
+/* 
+ */
+
+/* .center{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,5 +82,56 @@ mat-toolbar {
         
 }
 
+ */
 
+
+ .gridbutton {
+    display: none;
+  }
+  
+  .navOpen .gridbutton {
+    display: block;
+  }
+
+ @media (max-width: 1200px) {
+    .menu {
+      display: block;
+    }
+    .menu-line {
+      width: 30px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+    }
+    button {
+      display: none;
+    }
+    .menu2{
+        display: flex;
+        width: 400px;
+        height: 500px;
+    }
+
+    .gridbutton{
+        display: block;
+    }
+
+    
+  }
+
+
+  .right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    padding: 10px;
+  }
+
+
+  .rightGrid {
+    position: absolute;
+    right: -230px;
+    width: 300px;
+    padding: 10px;
+  }
 
