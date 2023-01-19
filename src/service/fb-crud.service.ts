@@ -46,6 +46,7 @@ export class FbCrudService {
     return this.afs.collection(collectionName).doc(id).update(data);
   } 
 
+  //give id to data
   giveID(collectionName: string,id: string, data: Flashcard){
     return this.afs.collection(collectionName).doc(id).update(data);
   }
@@ -64,7 +65,7 @@ export class FbCrudService {
   public category: string = "";
 
 
-
+  //set flashcards properties
   setFlashcard(id: string,engPhrase: string, hunPhrase: string,category: string) {
     this.flashcardId = id;
     this.engPhrase = engPhrase;

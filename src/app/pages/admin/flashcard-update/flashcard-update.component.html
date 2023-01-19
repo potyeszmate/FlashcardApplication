@@ -1,36 +1,33 @@
-<form [formGroup] = "formUpdate">
+<form [formGroup]="formUpdate">
   <h3>Flashcards</h3>
- 
+
+  <!-- Same as the add HTML, but in the placeholder we give the flashcards values (!BUG! : it shows the flashcards values we clicked before) -->
   <mat-form-field class="max-width">
-      <mat-label>Hungarian phrase</mat-label>
-      <input type="text" placeholder="{{hunPhrase}}" formControlName="hunPhrase" matInput cdkTextareaAutosize required 
+    <mat-label>Hungarian phrase</mat-label>
+    <input type="text" placeholder="{{hunPhrase}}" formControlName="hunPhrase" matInput cdkTextareaAutosize required
       cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6">
   </mat-form-field>
 
- <mat-form-field class="max-width">
-      <mat-label>English phrase</mat-label>
-      <input type="text" placeholder="{{engPhrase}}" formControlName="engPhrase" matInput cdkTextareaAutosize required
-      cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6" >
+  <mat-form-field class="max-width">
+    <mat-label>English phrase</mat-label>
+    <input type="text" placeholder="{{engPhrase}}" formControlName="engPhrase" matInput cdkTextareaAutosize required
+      cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6">
   </mat-form-field>
 
-  <!-- <mat-form-field class="max-width">
-      <mat-label>Category</mat-label>
-      <textarea placeholder= "Category" formControlName="category" matInput cdkTextareaAutosize required
-      cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6" ></textarea>
-  </mat-form-field> -->
 
   <mat-form-field class="max-width" appearance="fill">
-             
-      <mat-select placeholder="{{selected}}" formControlName="category" (selectionChange)="changeCategory($event.value)" >
-        <mat-option *ngFor="let category of categories"  [value]="category">
-          {{category}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field> 
+
+    <mat-select placeholder="{{selected}}" formControlName="category" (selectionChange)="changeCategory($event.value)">
+      <mat-option *ngFor="let category of categories" [value]="category">
+        {{category}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <div style="display: flex;justify-content:flex-end;">
-  <button mat-button (click)="dialogRef.close()" class="margin-right">Close</button>
-  <button mat-button [mat-dialog-close]="formUpdate.value" [disabled]="formUpdate.invalid" class="margin-right">UPDATE</button>
+    <button mat-button (click)="dialogRef.close()" class="margin-right">Close</button>
+    <button mat-button [mat-dialog-close]="formUpdate.value" [disabled]="formUpdate.invalid"
+      class="margin-right">UPDATE</button>
 
   </div>
 

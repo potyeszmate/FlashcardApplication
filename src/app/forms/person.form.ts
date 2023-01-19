@@ -5,6 +5,7 @@ import { getIdentifierForm } from './identifier.form';
 export function getPersonForm(): FormGroup {
     return new FormGroup({
 
+        //Formarray for email, uid
         active: new FormControl(),
         id: new FormControl(),
 

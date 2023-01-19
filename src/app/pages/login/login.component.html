@@ -1,60 +1,61 @@
   <div class="centering">
     <mat-card class="log-card">
-      <form [formGroup] = "form" (ngSubmit)="login()">
-  
+      <form [formGroup]="form" (ngSubmit)="login()">
+
         <h3>Login</h3>
         <br>
-  
+
         <mat-card id="alertCard" class="alert" *ngIf="alertMessage">
           {{alertMessage}}
         </mat-card>
-  
+        
+        <!-- Email, password input -->
         <mat-form-field class="max-width">
           <mat-label>E-mail</mat-label>
           <input type="email" name="email" matInput placeholder="email@gmail.com" formControlName="email">
         </mat-form-field>
-  
+
         <mat-form-field class="max-width">
           <mat-label>Password</mat-label>
           <input type="password" name="password" matInput minlength="8" placeholder="Jelszó" formControlName="password">
         </mat-form-field>
-  
+        <!-- Go to Register page -->
         <div>
-           <button mat-button color="accent" (click)="navTo('/register')">Register</button>
+          <button mat-button color="accent" (click)="navTo('/register')">Register</button>
         </div>
         <br>
-        <button type="submit" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid">Login</button>
+
+        <button type="submit" mat-raised-button color="primary" class="max-width"
+          [disabled]="form.invalid">Login</button>
         <br><br><br><br>
-  
+        <!-- Sign in with google account -->
         <div class="formGroup">
           <button type="button" class="btn googleBtn btn btn-lg btn-primary btn-block btn-signin"
-           (click)="googleLogin()">
-          
-          <span class="md-button-wrapper">
-            <img _ngcontent-qqo-1="" class="centerimg" src="https://icon-library.com/images/sign-in-with-google-icon/sign-in-with-google-icon-3.jpg" alt="">
-          </span>
-          
+            (click)="googleLogin()">
+
+            <span class="md-button-wrapper">
+              <img _ngcontent-qqo-1="" class="centerimg"
+                src="https://icon-library.com/images/sign-in-with-google-icon/sign-in-with-google-icon-3.jpg" alt="">
+            </span>
+
           </button>
         </div>
 
-         <div class="formGroup">
+        <!-- <div class="formGroup">
           <button type="button" class="btn googleBtn btn btn-lg btn-primary btn-block btn-signin"
-           (click)="facebookLogin()">
-          
-          <span class="md-button-wrapper">
-            <img _ngcontent-qqo-1="" class="centerimg" src="" alt="">
-          </span>
-          
+            (click)="facebookLogin()">
+
+            <span class="md-button-wrapper">
+              <img _ngcontent-qqo-1="" class="centerimg" src="" alt="">
+            </span>
+
           </button>
-  
-        </div>
-  
+
+        </div> -->
+
       </form>
-  
+
     </mat-card>
-  
-  
+
+
   </div>
-
-
- 

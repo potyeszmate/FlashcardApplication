@@ -8,38 +8,31 @@ import { AuthService } from 'src/service/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  ngOnInit(): void {
-    //this.authService.logout();
-
-  }
+  constructor(private router: Router, public authService: AuthService) { }
 
   error = false;
   alertMessage = '';
 
-  
 
-  constructor(private router: Router,public authService: AuthService) {}
-
-  
   //Login form for user login 
   form: FormGroup = new FormGroup({
-    email: new FormControl('',[Validators.required, Validators.email]),
-    password: new FormControl('',[Validators.minLength(8), Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.minLength(8), Validators.required]),
 
   });
 
 
-
-  login(){
-    if(this.form.invalid){
+  //Login with email and password
+  login() {
+    if (this.form.invalid) {
       return;
     }
 
-    this.authService.login(this.form.value.email, this.form.value.password ).then(
+    this.authService.login(this.form.value.email, this.form.value.password).then(
 
-      result =>{
+      result => {
         console.log(result);
         this.navTo('/home');
       },
@@ -59,32 +52,21 @@ export class LoginComponent implements OnInit {
 
   };
 
-  //google login reg
-  
+  //Login/reg with google account
   googleLogin() {
     this.authService.googleAuth()
   }
 
-   facebookLogin() {
-    this.authService.loginWithFacebook()
-  }
- 
+  /* facebookLogin() {
+   this.authService.loginWithFacebook()
+ }
+ */
 
-  navTo(url: string)
-  {
+  navTo(url: string) {
     this.router.navigateByUrl(url);
 
   }
 
 }
 
-
-/*
-  //Allert for login error
-  alertsList: any = {
-    user: () => 'Wrong username or password',
-    server: () => 'Service is not available',
-    false: () => '',
-
-  }; */
 

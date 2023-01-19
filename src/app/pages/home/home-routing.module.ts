@@ -12,6 +12,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: 
     [
+      //Set the homecomponents children (lazy loading)
       /* {
         path: 'category', 
         loadChildren: () => import('./../category/category.module').then(m => m.CategoryModule)

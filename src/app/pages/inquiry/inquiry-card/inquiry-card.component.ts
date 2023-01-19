@@ -20,14 +20,7 @@ import { GuessService } from 'src/service/guesses.service';
     ])
   ]
 })
-export class InquiryCardComponent implements OnInit {
-
-  @Input() flashcard?: Flashcard
-
-  constructor(private guessService: GuessService ) { }
-
-  ngOnInit(): void {
-  }
+export class InquiryCardComponent {
 
   flip: string = 'inactive';
   isFlipped: boolean = false;
@@ -37,6 +30,12 @@ export class InquiryCardComponent implements OnInit {
   correctGuesses = 0;
   incorrectGuesses = 0;
 
+  @Input() flashcard?: Flashcard
+
+  constructor(private guessService: GuessService ) { }
+
+
+  //Flip the card
   toggleFlip() {
     if(!this.isFlipped){
       this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
@@ -44,24 +43,14 @@ export class InquiryCardComponent implements OnInit {
     this.isFlipped = true;
   }
 
-/*   correctGuess(){
-    this.correctGuesses++;
-    console.log(this.correctGuesses);
-  }
-
-  incorrectGuess(){
-    this.incorrectGuesses++;
-    console.log(this.incorrectGuesses);
-  }
- */
-
+  //Increasing the correct/incorrect values
   correctValue() {
     this.guessService.increaseCorrectValue();
   }
-
   incorrectValue() {
     this.guessService.increaseIncorrectValue();
   }
+
 }
 
 

@@ -11,45 +11,39 @@ import { FbCrudService } from 'src/service/fb-crud.service';
   templateUrl: './flashcard-list.component.html',
   styleUrls: ['./flashcard-list.component.scss']
 })
-export class FlashcardListComponent implements  OnInit, OnDestroy {
+export class FlashcardListComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private service: FbCrudService) { }
 
+  //flashcard and flashard array observable
   flashcards: Observable<Flashcard[]> | null = null;
-  //category? = '';
   flashcard: Observable<Flashcard> | null = null;
 
 
-
+  //Init. flashcards
   ngOnInit(): void {
-    //this.category = '';
     this.getFlashcards();
   }
-
-  getFlashcards() :void{
+  //Get flashcard list from the serveice
+  getFlashcards(): void {
     this.flashcards = this.service.get('flashcards');
   }
 
-  ngOnDestroy(): void {
-    //delete this.category;
-  }
 
-  openDialog(): void 
-  {
-    
+  //Add flashcard (opening the add dialog)
+  openDialog(): void {
+
     const dialogRef = this.dialog.open(FlashcardAddComponent, {
       //height: '400px',
       //width: '600px',
     });
 
-    dialogRef.afterClosed().subscribe((result: Flashcard) => 
-    {
+    dialogRef.afterClosed().subscribe((result: Flashcard) => {
       console.log(result);
       console.log(result.category);
 
 
-      if(result?.hunPhrase)
-      {
+      if (result?.hunPhrase) {
         //result.category = this.cat.selectedCategory;
         this.service.add('flashcards', result);
         //this.games.push(result);
@@ -61,30 +55,20 @@ export class FlashcardListComponent implements  OnInit, OnDestroy {
   }
 
 
-  deleteFlashcard(id: string) : void {
-    console.log(id);
-    this.service.delete(id);
-    //this.selectedPokemon = undefined;
-  }
-
-  updateFlashcard(id: string): void 
-  {
-    this.service.getById('flashcards',id);
+  //UpdateFlashcard (pressing the edit btn)
+  updateFlashcard(id: string): void {
+    this.service.getById('flashcards', id);
     const dialogRef = this.dialog.open(FlashcardUpdateComponent, {
-      
-      //height: '400px',
-      //width: '600px',
+      //Set the dialog size for example
     });
 
-    dialogRef.afterClosed().subscribe((result: Flashcard) => 
-    {
+    dialogRef.afterClosed().subscribe((result: Flashcard) => {
       console.log(result);
 
-      if(result?.hunPhrase)
-      {
+      if (result?.hunPhrase) {
+        //Set the id to the flashcard (we need the sam id) and update with the new values
         result.id = id;
-        this.service.update('flashcards',id, result);
-        //this.games.push(id);
+        this.service.update('flashcards', id, result);
       }
 
     }, err => {
@@ -92,19 +76,18 @@ export class FlashcardListComponent implements  OnInit, OnDestroy {
     });
   }
 
-  /* selectItem(id: string) {
-    this.service.setItemId(id);
-  } */
+  //delete flashcard
+  deleteFlashcard(id: string): void {
+    console.log(id);
+    this.service.delete(id);
+  }
 
-  selectFlashcard(id: string,engPhrase: string,hunPhrase: string,category: string){
-    this.service.setFlashcard(id,engPhrase,hunPhrase,category);
+  //Stores the selected flashcards values, to show it on the update dialog
+  selectFlashcard(id: string, engPhrase: string, hunPhrase: string, category: string) {
+    this.service.setFlashcard(id, engPhrase, hunPhrase, category);
     console.log(this.service.hunPhrase);
     console.log(this.service.engPhrase);
   }
-
-
-
-
 
 
 }

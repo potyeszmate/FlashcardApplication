@@ -12,21 +12,23 @@ import { Observable } from 'rxjs';
 })
 export class FlashcardUpdateComponent {
 
-  hunPhrase:string ="";
-  engPhrase:string ="";
-  selected:string ="Non";
+  //clicked flashcard's properties
+  hunPhrase: string = "";
+  engPhrase: string = "";
+  selected: string = "Non";
+
+  categories = ['Human', 'Work', 'Study', 'Hobby', 'Sport', 'Food', 'Politics'];
+  
+  selectedCategory: string = 'Sport';
 
 
-
-  constructor(public dialogRef: MatDialogRef<FlashcardUpdateComponent>,private flashcardService: FbCrudService) {
+  //Get the clicked flashcards values
+  constructor(public dialogRef: MatDialogRef<FlashcardUpdateComponent>, private flashcardService: FbCrudService) {
     this.hunPhrase = flashcardService.hunPhrase;
     this.engPhrase = flashcardService.engPhrase;
     this.selected = flashcardService.category;
 
-
-   }
-
-  categories = ['Human', 'Work', 'Study','Hobby', 'Sport', 'Food','Politics'];
+  }
 
 
   formUpdate: FormGroup = new FormGroup({
@@ -34,20 +36,16 @@ export class FlashcardUpdateComponent {
     hunPhrase: new FormControl(''),
     engPhrase: new FormControl(''),
     category: new FormControl(''),
-    
 
   });
 
-  selectedCategory: string ='Sport';
-
-  changeCategory(value:string) {
+  //sets the selected category
+  changeCategory(value: string) {
     this.selectedCategory = value;
     console.log(this.selectedCategory);
     console.log(typeof this.selectedCategory);
 
-
   }
-
 
 
 }

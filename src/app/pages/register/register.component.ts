@@ -13,16 +13,14 @@ export class RegisterComponent {
   error = false;
   isSignedIn = false;
 
-  
-  constructor(private router: Router, private authService : AuthService) { }
 
-  //sign up and authentication 
+  constructor(private router: Router, private authService: AuthService) { }
+
+  //Checking for errors and validations (navigate to login page after succesful registration)
   registration(): void {
     this.error = false;
-    if(this.form.valid )
-    {
-      if(this.form.value.password1 === this.form.value.password2)
-      {
+    if (this.form.valid) {
+      if (this.form.value.password1 === this.form.value.password2) {
         //console.log(this.form.value);
         this.router.navigateByUrl("/login");
         return;
@@ -32,9 +30,10 @@ export class RegisterComponent {
 
   }
 
+  //Signs up the user to the firebase authservice (email+password)
   async onSignUp(email: string, password: string) {
-    await this.authService.signup(email,password);
-    if(this.authService.isLoggedIn){
+    await this.authService.signup(email, password);
+    if (this.authService.isLoggedIn) {
       this.isSignedIn = true;
     }
   }
@@ -42,9 +41,9 @@ export class RegisterComponent {
   //register form
   form: FormGroup = new FormGroup({
     username: new FormControl(),
-    email: new FormControl('',[Validators.required, Validators.email]),
-    password1: new FormControl('',[Validators.minLength(8), Validators.required]),
-    password2: new FormControl('',[Validators.minLength(8), Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password1: new FormControl('', [Validators.minLength(8), Validators.required]),
+    password2: new FormControl('', [Validators.minLength(8), Validators.required]),
 
   });
 

@@ -6,12 +6,12 @@ import { Flashcard } from 'src/app/shared/modells/flashcard.model';
   templateUrl: './flashcard-card.component.html',
   styleUrls: ['./flashcard-card.component.scss']
 })
-export class FlashcardCardComponent implements OnInit {
+export class FlashcardCardComponent  {
 
 /*   @Input() flashcard?: Flashcard
  */  
-  @Input() flashcard: Flashcard = {} as any;
 
+   /*
   @Input() hasAction = true;
 
   @Output() callFav = new EventEmitter<Flashcard>();
@@ -21,11 +21,11 @@ export class FlashcardCardComponent implements OnInit {
     //event.stopPropagation();
     this.flashcard.star = !this.flashcard?.star;
     this.callFav.emit(this.flashcard);
-  }
+  } */
+
+  @Input() flashcard: Flashcard = {} as any;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
   
 }

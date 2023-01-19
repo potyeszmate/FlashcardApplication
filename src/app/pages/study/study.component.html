@@ -1,65 +1,35 @@
 <br><br>
 <div class="container-1">
-<h2>Welcome to the Study page! Select a category and study by clicking on the cards!</h2>
-<mat-card>
-  <mat-form-field appearance="fill">
-    <mat-label>Select category</mat-label>
-    <mat-select (selectionChange)="changeCategory($event.value)">
+  <h2>Welcome to the Study page! Select a category and study by clicking on the cards!</h2>
+  <mat-card>
+    <mat-form-field appearance="fill">
+      <mat-label>Select category</mat-label>
+      <mat-select (selectionChange)="changeCategory($event.value)">
 
-      <mat-option *ngFor="let category of categories" [value]="category.value">
-        {{category.categoryName}}
-      </mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category.value">
+          {{category.categoryName}}
+        </mat-option>
 
 
-    </mat-select>
-  </mat-form-field>
-  Your selected category is: {{selectedCategory}}
-</mat-card>
+      </mat-select>
+    </mat-form-field>
+    Your selected category is: {{selectedCategory}}
+  </mat-card>
 
-<br><br>
+  <br><br>
 
   <div class="center">
-    
-      <div class="inner-card"  *ngFor="let flashcard of filteredAndSlicedList | async, let i = index">
-      
-        <!-- <div *ngIf="flashcard.category === selectedCategory">
-        </div> -->
-          <div *ngIf="selectedCard === i"> 
-            <app-flashcard-card (click)="onCardClick(i)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
 
-          </div> 
-
-          <div *ngIf="isLastItem">
-        
-        
-          </div>
-       
-
+    <div class="inner-card" *ngFor="let flashcard of filteredAndSlicedList | async, let i = index">
+      <!-- Display only one item at once (by checking current card 'number' and the index) -->
+      <div *ngIf="selectedCard === i">
+        <app-flashcard-card (click)="onCardClick(i)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
+      </div>
+      <!-- If there is no more items: -->
+      <div *ngIf="isLastItem">
       </div>
 
-      <br>
-      
-</div>  
- 
-
-  <!-- <ng-container *ngIf="flashcardlist | async as fcl">
-    <div *ngFor="let flashcard of fcl; let i = index; last as isLast">
-      <div *ngIf="selectedCard === i">  
-        <div *ngIf="flashcard.category === selectedCategory">
-                <app-flashcard-card  (click)="onCardClick(i)" (callFav)="onFavorite($event)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
-            </div>
-        </div>
-
-        <div *ngIf="flashcardlist[i + 1].category !== selectedCategory">
-          {{onCardClick(i)}}      
-        </div> 
-        
     </div>
-  </ng-container> --> 
+    <br>
 
-
- <!--  <div *ngFor="let item of getFilteredItems(selectedCategory); let i = index" [hidden]="i !== currentIndex">
-    <app-flashcard-card  (click)="onCardClick(i)" class="item" [flashcard]="flashcard"> </app-flashcard-card>
   </div>
-</div> -->
-

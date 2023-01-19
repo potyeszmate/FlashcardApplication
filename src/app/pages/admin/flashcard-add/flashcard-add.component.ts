@@ -17,70 +17,33 @@ import { CategoryService } from 'src/service/category.service';
 })
 export class FlashcardAddComponent {
 
-  @Output() onSelected = new EventEmitter<any>();
-
 
   constructor(public dialogRef: MatDialogRef<FlashcardAddComponent>, private categoryService: CategoryService) { }
 
+  //Possible categories
+  categories = ['Human', 'Work', 'Study', 'Hobby', 'Sport', 'Food', 'Politics'];
+  //The selected category (by default:Sport)
+  selectedCategory: string = 'Sport';
 
-  /* categories: Category[] = [
-    {value: 'Human', categoryName: 'Human'},
-    {value: 'Work', categoryName: 'Work'},
-    {value: 'Study', categoryName: 'Study'},
-    {value: 'Hobby', categoryName: 'Hobby'},
-    {value: 'Sport', categoryName: 'Sport'},
-    {value: 'Food', categoryName: 'Food'},
-    {value: 'Politics', categoryName: 'Politics'},
+  @Output() onSelected = new EventEmitter<any>();
 
-
-  ]; */
-
-
-  /* changeCategory(value:string) {
-    this.selectedCategory = value;
-    console.log(this.selectedCategory);
-
-  } */
-
-  onSelectedProduct(product: string) {
-    console.log(product);
-    this.onSelected.emit(product);
-  }
-
-
-  categories = ['Human', 'Work', 'Study','Hobby', 'Sport', 'Food','Politics'];
-
+  //Formgroup for the flashcard add
   form: FormGroup = new FormGroup({
     id: new FormControl(''),
     hunPhrase: new FormControl(''),
     engPhrase: new FormControl(''),
     category: new FormControl(''),
-    
+
 
   });
 
 
-  selectedCategory: string ='Sport';
-
-  changeCategory(value:string) {
+  //Sets the value the the selectedCategory variable
+  changeCategory(value: string) {
     this.selectedCategory = value;
     console.log(this.selectedCategory);
     console.log(typeof this.selectedCategory);
 
-
   }
-
-
-
-  /*
-  close(): void{
-    if(this.form.valid)
-    {
-      this.dialogRef.close(this.form.value);
-    }
-    
-    this.dialogRef.close();
-  }
-  */
 
 }

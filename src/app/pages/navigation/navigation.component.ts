@@ -11,21 +11,18 @@ import { AuthService } from 'src/service/auth.service';
 })
 export class NavigationComponent {
 
-  //categories = CATEGORIES;
 
   constructor(private router: Router, private authService: AuthService, public auth: AngularFireAuth) { }
 
+  //Logging the user out
   logout(){
     this.authService.logout();
     this.router.navigateByUrl('login');
   }
-
-  
+  //navigate to the given page
   navUrl(url: string){
     this.router.navigateByUrl(url);
   }
 
-/*   currentYear = new Date().getFullYear();
- */
 
 }

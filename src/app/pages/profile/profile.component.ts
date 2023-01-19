@@ -14,6 +14,9 @@ import { FbCrudService } from 'src/service/fb-crud.service';
 })
 export class ProfileComponent {
 
+  constructor(public afAuth: AngularFireAuth,  private service: FbCrudService) { }
+
+  /* 
   form: FormGroup | null = null;
   
   @Input() user?: User;
@@ -21,37 +24,29 @@ export class ProfileComponent {
   users: Observable<User[]> | null = null;
 
 
-//teszt user adatkiirasra
   profileForm = new FormGroup({
   uid: new FormControl(''),
   displayName: new FormControl(''),
   uname: new FormControl(''),
   
 
-})
+}) 
 
-
-constructor(public afAuth: AngularFireAuth,  private service: FbCrudService) { }
 
 ngOnInit(): void {
   this.initForm();
-  //this.getUserName();
   
 }
 
-/* getUsername() :void{
-  this.users = this.service.getUsername('users');
-  console.log(this.users);
-} */
 
   initForm(): void {
     this.form = getPersonForm();
     const idFormArray = this.form.get('identifier') as FormArray;
-    (idFormArray.get([1]) as FormGroup).controls['value'].setValue('laki@webkert.com');  //.value
+    (idFormArray.get([1]) as FormGroup).controls['value'].setValue('email');  
   }
 
   log(): void {
     console.log(this.form?.value);
-  }
+  } */
 
 }

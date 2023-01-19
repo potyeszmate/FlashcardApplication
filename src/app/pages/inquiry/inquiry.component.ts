@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { from, Observable, of } from 'rxjs';
 import { Flashcard } from 'src/app/shared/modells/flashcard.model';
 import { FbCrudService } from 'src/service/fb-crud.service';
@@ -17,23 +17,51 @@ interface Category {
   templateUrl: './inquiry.component.html',
   styleUrls: ['./inquiry.component.scss']
 })
-export class InquiryComponent {
-  categories: Category[] = [
-    {value: 'Human', categoryName: 'Human'},
-    {value: 'Work', categoryName: 'Work'},
-    {value: 'Study', categoryName: 'Study'},
-    {value: 'Hobby', categoryName: 'Hobby'},
-    {value: 'Sport', categoryName: 'Sport'},
-    {value: 'Food', categoryName: 'Food'},
-    {value: 'Politics', categoryName: 'Politics'},
+export class InquiryComponent implements OnInit {
 
+  //initialize guesses
+  correctGuesses$: Observable<number>;
+  incorrectGuesses$: Observable<number>;
+  //initialize flashcards/filteredflashcards
+  flashcardlist: Observable<Flashcard[]> | null = null;
+  filteredAndSlicedList: Observable<Flashcard[]> | null = null;
+  flashcard: Observable<Flashcard> | null = null;
+
+  selectedCard: number = 0
+  //buttonPressed: boolean = false;
+  isItem: boolean = false;
+  selectedCategory: string = 'Nothing';
+
+
+  constructor(private service: FbCrudService, private guessService: GuessService) {
+    this.correctGuesses$ = this.guessService.correctValue$;
+    this.incorrectGuesses$ = this.guessService.incorrectValue$;
+
+  }
+
+  //The category array for selecting the caregory (this is an other way, value is that will be selected, categoryName is the printed)
+  categories: Category[] = [
+    { value: 'Human', categoryName: 'Human' },
+    { value: 'Work', categoryName: 'Work' },
+    { value: 'Study', categoryName: 'Study' },
+    { value: 'Hobby', categoryName: 'Hobby' },
+    { value: 'Sport', categoryName: 'Sport' },
+    { value: 'Food', categoryName: 'Food' },
+    { value: 'Politics', categoryName: 'Politics' },
 
   ];
 
-  
-  selectedCategory: string ='Nothing';
+  ngOnInit(): void {
+    this.getFlashcards();
 
-  changeCategory(value:string) {
+  }
+
+  getFlashcards(): void {
+    this.flashcardlist = this.service.get('flashcards');
+  }
+
+  //Push the items with the selected category to a temporary array but only the first possible 10 item
+  changeCategory(value: string) {
     this.selectedCategory = value;
     console.log(this.selectedCategory);
 
@@ -43,94 +71,30 @@ export class InquiryComponent {
     this.flashcardlist.subscribe(data => {
       let count = 0;
       let tempArray: Flashcard[] = []
-      for(let flashcard of data) {
-          if(flashcard.category === this.selectedCategory) {
-              tempArray.push(flashcard);
-              count++;
-              console.log(count);
+      for (let flashcard of data) {
+        if (flashcard.category === this.selectedCategory) {
+          tempArray.push(flashcard);
+          count++;
+          console.log(count);
 
-              if(count === 10) {
-                  break;
-              }
+          if (count === 10) {
+            break;
           }
+        }
       }
+
+      //Convert the array to Observable<Flashcard[]>
       this.filteredAndSlicedList = tempArray.length > 0 ? of(tempArray) : null;
-      //console.log(tempArray.length);
 
     });
 
   }
 
-  correctGuesses$: Observable<number>;
-  incorrectGuesses$: Observable<number>;
 
 
-  constructor( private service: FbCrudService, private guessService: GuessService) {
-    this.correctGuesses$ = this.guessService.correctValue$;
-    this.incorrectGuesses$ = this.guessService.incorrectValue$;
-
-   }
-
-
-
-  flashcardlist: Observable<Flashcard[]> | null = null;
-  filteredAndSlicedList: Observable<Flashcard[]> | null = null;
-
-
-  flashcard: Observable<Flashcard> | null = null;
-
-  //category? = '';
-
-
-
-  ngOnInit(): void {
-    //this.category = '';
-    this.getFlashcards();
-    
-    }
-    //filtering
-    
-
-    /* this.flashcardlist.pipe(
-        filter(flashcard => flashcard.category === this.selectedCategory),
-        take(10)
-    ).subscribe(data => this.filteredAndSlicedList = data);
-    } */
-
-    //this.flashcardlist = this.service.get("flashcards");
-
-
-
-  
-    
-
-  getFlashcards() :void{
-    this.flashcardlist = this.service.get('flashcards');
-  }
-
-  selectedCard: number = 0
-
-  onCardClick(id: number): void{
-    console.log(this.selectedCard);
-    let nextIndex = id + 1;
-      
-    this.selectedCard = id + 1;
-
-    /* if (this.selectedCard >= this.flashcard!.length) {
-        this.selectedCard = 0;
-    } */
-
-    //this.selectedCard = 0;     
-  } 
-
-  buttonPressed: boolean = false;
- 
-  isItem: boolean = false;
-
-  itemCount(){
+  //Itemcount that sets the item to true to show the Correct/incorrect bucket
+  itemCount() {
     this.isItem = true;
-    //console.log(this.items);
   }
 
-  
 }

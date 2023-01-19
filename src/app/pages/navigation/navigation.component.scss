@@ -114,6 +114,7 @@ mat-toolbar {
 
     .gridbutton{
         display: block;
+        padding-left: 10px;
     }
 
     
@@ -128,10 +129,4 @@ mat-toolbar {
   }
 
 
-  .rightGrid {
-    position: absolute;
-    right: -230px;
-    width: 300px;
-    padding: 10px;
-  }
 
