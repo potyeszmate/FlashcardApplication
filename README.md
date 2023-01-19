@@ -1,27 +1,57 @@
-# FlashcardApp
+# CAS trial work
+## _Flashcard application_
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
+TO DO LIST:
 
-## Development server
+  - Study page: filter card to categories, restore index when last in loop to 0, isLast to boolean
+  - favourite flashcards - correct it, connect with firebase
+  - Inquiery: only 10 cards view, when clicked all, next (?)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  - CRUD: Edit - show old values
+  - CRUD: no stars
+  - mobile view
+  
+  - profile page- name (?)
+  - upload image?
+  
+## Features
 
-## Code scaffolding
+- Import a HTML file and watch it magically convert to Markdown
+- Drag and drop images (requires your Dropbox account be linked)
+- Import and save files from GitHub, Dropbox, Google Drive and One Drive
+- Drag and drop markdown and HTML files into Dillinger
+- Export documents as Markdown, HTML and PDF
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
 
-## Running unit tests
+```sh
+cd dillinger
+npm i
+node app
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+For production environments...
 
-## Running end-to-end tests
+```sh
+npm install --production
+NODE_ENV=production node app
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Versions
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+| Plugin | README |
+| ------ | ------ |
+| Dropbox | [plugins/dropbox/README.md][PlDb] |
+| GitHub | [plugins/github/README.md][PlGh] |
+| Google Drive | [plugins/googledrive/README.md][PlGd] |
+| OneDrive | [plugins/onedrive/README.md][PlOd] |
+| Medium | [plugins/medium/README.md][PlMe] |
+| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+
+## Development
+
+
