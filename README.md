@@ -33,4 +33,4 @@ The version's of my tools:
 | Node| [16.10.0] |
 | Package Manager (npm) | [9.2.0] |
 
-
+For the authentication and database I used firebase.
