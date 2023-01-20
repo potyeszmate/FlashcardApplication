@@ -1,6 +1,6 @@
 <div class="box">
   <div class="inner-card">
-    <mat-card *ngIf="flashcard">
+    <div *ngIf="flashcard">
       <div class="tp-wrapper">
         <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
           <div class="tp-box__side tp-box__front">
@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-    </mat-card>
+    </div>
     <div class="buttons">
       <div *ngIf="this.areButtonsVisible && isFlipped" (click)="this.areButtonsVisible = false">
         <!-- Correct and incorrect button -->

@@ -39,7 +39,6 @@ export class InquiryComponent implements OnInit {
     this.incorrectGuesses$ = this.guessService.incorrectValue$;
 
   }
-
   //The category array for selecting the caregory (this is an other way, value is that will be selected, categoryName is the printed)
   categories: Category[] = [
     { value: 'Human', categoryName: 'Human' },
@@ -61,6 +60,8 @@ export class InquiryComponent implements OnInit {
     this.flashcardlist = this.service.get('flashcards');
   }
 
+ 
+
   //Push the items with the selected category to a temporary array but only the first possible 10 item
   changeCategory(value: string) {
     this.selectedCategory = value;
@@ -80,10 +81,12 @@ export class InquiryComponent implements OnInit {
 
           if (count === 10) {
             break;
-          }
+          } 
         }
       }
 
+      
+      
       //Convert the array to Observable<Flashcard[]>
       this.filteredAndSlicedList = tempArray.length > 0 ? of(tempArray) : null;
 
@@ -98,4 +101,22 @@ export class InquiryComponent implements OnInit {
     this.isItem = true;
   }
 
+/* Maybe the solution is like this: slice the array by the given first and last indexes (0-10/ 10-20...), but load them again IF all the buttons were pressed
+
+ firstIndex = 0;
+  lastIndex = 10;
+
+  changeIndexes(firstI: number, lastI: number){
+    this.firstIndex = firstI;
+    this.lastIndex = lastI;
+  }
+
+  lastClicked(cat: string){
+    this.changeIndexes(this.firstIndex + 10, this.lastIndex + 10);
+    this.changeCategory(cat);
+  }
+
+  tempArray = tempArray.slice(this.firstIndex, this.lastIndex);
+      console.log(tempArray.slice(this.firstIndex, this.lastIndex));
+ */
 }

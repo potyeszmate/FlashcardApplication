@@ -82,12 +82,6 @@ export class FlashcardListComponent implements OnInit {
     });
   }
 
-/*   //delete flashcard
-  deleteFlashcard(id: string): void {
-    console.log(id);
-    this.service.delete(id);
-  }
- */
 
   confirmed:boolean = false;
 
@@ -112,13 +106,6 @@ export class FlashcardListComponent implements OnInit {
       console.warn(err);
     });
   }
-/* 
-  //Stores the selected flashcards values, to show it on the update dialog
-  selectFlashcard( engPhrase: string, hunPhrase: string, category: string) {
-    this.service.setFlashcard(engPhrase, hunPhrase, category);
-    console.log(this.service.hunPhrase);
-    console.log(this.service.engPhrase);
-  }
- */
+
 
 }

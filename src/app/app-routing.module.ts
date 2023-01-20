@@ -7,7 +7,7 @@ const routes: Routes = [
 
   {path: '', redirectTo: 'login', pathMatch: 'full'},
 
-  //routers Login, Register, Home Admin
+  //routers Login, Register, Home Admin (with authguards for profile and home)
 
   {
     path: 'home', 
