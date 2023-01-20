@@ -5,9 +5,9 @@ import { BehaviorSubject } from 'rxjs';
 export class CategoryService {
 
     //private categorySubject = new BehaviorSubject<string>("");
-
-    categoryValue:string = "";
-
+    
+/*     categoryValue:string = "";
+ */
 
   
 }

@@ -37,17 +37,18 @@
         </mat-chip>
       </mat-chip-list>
 
-      <br>
-      <!-- Go to login page -->
-      <div>
-        <button mat-button color="accent" [routerLink]="[ '/login' ]">Login</button>
-      </div>
+      <br><br>
 
-      <br>
       <!-- Register the user -->
       <button type="submit" (click)="onSignUp(emailSignup.value,passwordSignup.value)" mat-raised-button color="primary"
         class="max-width" [disabled]="form.invalid">Register</button>
 
+      <br><br>
+      <h3>Already have an account?</h3>
+      <!-- Go to login page -->
+      <div class="regbtn">
+        <button mat-button color="accent" [routerLink]="[ '/login' ]">Login</button>
+      </div>
 
     </form>
 

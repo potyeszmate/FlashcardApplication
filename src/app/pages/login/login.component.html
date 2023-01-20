@@ -1,9 +1,9 @@
   <div class="centering">
     <mat-card class="log-card">
       <form [formGroup]="form" (ngSubmit)="login()">
-
-        <h3>Login</h3>
+        <img class="primary-icon" src="https://cdn-icons-png.flaticon.com/512/6587/6587388.png"> <p>Flashcard Application</p>
         <br>
+        <h2>Login</h2>
 
         <mat-card id="alertCard" class="alert" *ngIf="alertMessage">
           {{alertMessage}}
@@ -17,17 +17,16 @@
 
         <mat-form-field class="max-width">
           <mat-label>Password</mat-label>
-          <input type="password" name="password" matInput minlength="8" placeholder="Jelszó" formControlName="password">
+          <input type="password" name="password" matInput minlength="8" placeholder="Password" formControlName="password">
         </mat-form-field>
-        <!-- Go to Register page -->
-        <div>
-          <button mat-button color="accent" (click)="navTo('/register')">Register</button>
-        </div>
-        <br>
 
         <button type="submit" mat-raised-button color="primary" class="max-width"
-          [disabled]="form.invalid">Login</button>
-        <br><br><br><br>
+        [disabled]="form.invalid">Login</button>
+        <br>
+        <div class="content">
+          <p class="or">or</p>
+        </div>        
+        <br>
         <!-- Sign in with google account -->
         <div class="formGroup">
           <button type="button" class="btn googleBtn btn btn-lg btn-primary btn-block btn-signin"
@@ -40,6 +39,15 @@
 
           </button>
         </div>
+        
+      <!-- Go to Register page -->
+       <br>
+        <h4>Don't have an account yet?</h4>
+        <div class="regbtn">
+          <button mat-button color="accent" (click)="navTo('/register')">Register</button>
+        </div>
+        <br>
+     
 
         <!-- <div class="formGroup">
           <button type="button" class="btn googleBtn btn btn-lg btn-primary btn-block btn-signin"

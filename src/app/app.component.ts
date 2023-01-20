@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TitleService } from 'src/service/routing/title.service';
+import { TitleService } from 'src/app/service/routing/title.service';
 
 @Component({
   selector: 'app-root',

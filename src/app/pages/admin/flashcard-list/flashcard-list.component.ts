@@ -4,7 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { FlashcardAddComponent } from '../flashcard-add/flashcard-add.component';
 import { FlashcardUpdateComponent } from '../flashcard-update/flashcard-update.component';
-import { FbCrudService } from 'src/service/fb-crud.service';
+import { FbCrudService } from 'src/app/service/fb-crud.service';
+import { FlashcardDeleteComponent } from '../flashcard-delete/flashcard-delete.component';
 
 @Component({
   selector: 'app-flashcard-list',
@@ -76,10 +77,35 @@ export class FlashcardListComponent implements OnInit {
     });
   }
 
-  //delete flashcard
+/*   //delete flashcard
   deleteFlashcard(id: string): void {
     console.log(id);
     this.service.delete(id);
+  }
+ */
+
+  confirmed:boolean = false;
+
+
+   //Delete flashcard
+   delete(id: string): void {
+    this.service.getById('flashcards', id);
+    const dialogRef = this.dialog.open(FlashcardDeleteComponent, {
+      //Set the dialog size for example
+    });
+
+    dialogRef.afterClosed().subscribe((result: Flashcard) => {
+
+      if (result?.category === "Yes") {
+        //Set the id to the flashcard (we need the sam id) and update with the new values
+        console.log(result);
+        //Set the id to the flashcard (we need the sam id) and update with the new values
+        this.service.delete(id);
+      }      
+
+    }, err => {
+      console.warn(err);
+    });
   }
 
   //Stores the selected flashcards values, to show it on the update dialog

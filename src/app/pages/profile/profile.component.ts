@@ -4,7 +4,6 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { getPersonForm } from 'src/app/forms/person.form';
 import { User } from 'src/app/shared/modells/user.model';
-import { FbCrudService } from 'src/service/fb-crud.service';
 
 
 @Component({
@@ -14,7 +13,7 @@ import { FbCrudService } from 'src/service/fb-crud.service';
 })
 export class ProfileComponent {
 
-  constructor(public afAuth: AngularFireAuth,  private service: FbCrudService) { }
+  constructor(public afAuth: AngularFireAuth) { }
 
   /* 
   form: FormGroup | null = null;

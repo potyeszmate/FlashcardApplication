@@ -6,7 +6,7 @@
       </a>
     </div>
     <a mat-button (click)="navUrl('/home/study')">
-      Flashcard Application
+      <p>Flashcard Application</p>
     </a>
     <!-- Two pages (study inquiry) -->
     <button mat-button (click)="navUrl('/home/study')" routerLinkActive="active">
@@ -58,7 +58,7 @@
       <div class="menu-line"></div>
     </div>
 
-
+    <!-- Mobile dropdown menu (!BUG!: If width is around 450px, the hamburger menu is hardly clickable) -->
     <mat-menu class="gridbutton" #hamburger="matMenu">
       <button class="gridbutton" mat-menu-item (click)="navUrl('/home/study')" routerLinkActive="active">
         <mat-icon>school icon</mat-icon>
@@ -70,10 +70,6 @@
         Inquiery&nbsp;
       </button>
 
-      <!-- <button class="gridbutton" mat-menu-item (click)="navUrl('/home/favoritecards')" routerLinkActive="active">
-          Cards to study&nbsp;
-          <mat-icon>star icon</mat-icon>
-        </button> -->
 
       <div *ngIf="(auth.user | async)?.email === 'admin1@vocabapp.com' ">
         <button class="gridbutton" mat-menu-item (click)="navUrl('/home/flashcardlist')" routerLinkActive="active">
@@ -81,6 +77,16 @@
           Flashcard CRUD&nbsp;
         </button>
       </div>
+
+      <button class="gridbutton" mat-menu-item [routerLink]="['/profile']">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </button>
+
+      <button class="gridbutton" mat-menu-item (click)="logout()">
+        <mat-icon>arrow_back</mat-icon>
+        <span>Logout</span>
+      </button>
 
     </mat-menu>
 

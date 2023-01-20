@@ -10,6 +10,10 @@ export class PrevRouteService {
 
   constructor(private router: Router) { }
 
+  //Sample for dynamic title routing (get the previous route)
+
+
+  //get previous route
   public loadRouting(){
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
     .subscribe(({urlAfterRedirects}: any) => {

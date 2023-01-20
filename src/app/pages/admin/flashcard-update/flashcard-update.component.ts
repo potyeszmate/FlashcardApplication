@@ -1,9 +1,9 @@
-import { FbCrudService } from 'src/service/fb-crud.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Flashcard } from 'src/app/shared/modells/flashcard.model';
 import { Observable } from 'rxjs';
+import { FbCrudService } from 'src/app/service/fb-crud.service';
 
 @Component({
   selector: 'app-flashcard-update',
@@ -23,7 +23,7 @@ export class FlashcardUpdateComponent {
 
 
   //Get the clicked flashcards values
-  constructor(public dialogRef: MatDialogRef<FlashcardUpdateComponent>, private flashcardService: FbCrudService) {
+  constructor(public dialogRef: MatDialogRef<FlashcardUpdateComponent>, flashcardService: FbCrudService) {
     this.hunPhrase = flashcardService.hunPhrase;
     this.engPhrase = flashcardService.engPhrase;
     this.selected = flashcardService.category;

@@ -46,4 +46,45 @@
       width: 50%;
   } 
 
+  .primary-icon{
+    height: 40px;
+ }
+
+ p{
+  margin-left: 60px;
+  margin-top: -33px;
+  text-align: justify;
+  font-size: 18px;
+
+ }
+
+ .regbtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+ }
   
+ 
+h4{
+  text-align: center;
+  color: rgb(235, 231, 231);
+  
+}
+
+.content {
+  margin-top: 60px;
+  width: 300px;
+  margin-left: -12%;
+}
+
+.or {
+  text-align: center;
+  font-size: 15px;
+  background:
+    linear-gradient(rgb(255, 255, 255) 0 0) left,
+    linear-gradient(rgb(255, 255, 255) 0 0) right;
+  background-size: 40% 1px;
+  background-repeat: no-repeat;
+}

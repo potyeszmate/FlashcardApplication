@@ -8,6 +8,7 @@ import { FlashcardCardModule } from '../flashcard-card/flashcard-card.module';
 import { MatCardModule } from '@angular/material/card';
 import { FlashcardUpdateModule } from '../flashcard-update/flashcard-update.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FlashcardDeleteModule } from '../flashcard-delete/flashcard-delete.module';
 
 
 
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     FlashcardUpdateModule,
     ReactiveFormsModule,
+    FlashcardDeleteModule
     
   ],
   exports: [

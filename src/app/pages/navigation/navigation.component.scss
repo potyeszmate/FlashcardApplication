@@ -48,42 +48,6 @@ mat-toolbar {
     margin-bottom: 4px;
  }
 
-/*  .menu{
-    display: none;
- }
-
- @media all and (max-width: 480px){
-    mat-toolbar{
-        flex-direction: column;
-    }
-    .menu{
-        display: block;
-        position: absolute;
-        right: 15px;
-        top: 15px;
-     }
- } */
-
-/* [mat-button]
-{
-    text-transform: capitalize;
-}
- */
-
-
-/* 
- */
-
-/* .center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-        
-}
-
- */
-
 
  .gridbutton {
     display: none;
@@ -117,9 +81,7 @@ mat-toolbar {
         padding-left: 10px;
     }
 
-    
   }
-
 
   .right {
     position: absolute;
@@ -128,5 +90,6 @@ mat-toolbar {
     padding: 10px;
   }
 
-
-
+  p{
+    font-size: 26px;
+  }

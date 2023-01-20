@@ -1,0 +1,26 @@
+
+<form [formGroup]="deleteForm">
+    <h3>Flashcards</h3>
+  
+
+<p>Are you sure you want to delete this flashcard?</p>
+    <!-- Write the hungarian and the english phrase-->
+    <mat-form-field class="max-width" appearance="fill">
+        <mat-label>Select category</mat-label>
+        <mat-select formControlName="category" (selectionChange)="changeCategory($event.value)">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{category}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+<div style="display: flex;justify-content:flex-end;">
+    <button mat-button (click)="dialogRef.close()" class="margin-right">CANCEL</button>
+    <!-- Add the values to a new card and save to the database -->
+    <button mat-button [mat-dialog-close]="deleteForm.value" [disabled]="deleteForm.invalid" class="margin-right">DELETE</button>
+
+
+  </div>
+
+</form>

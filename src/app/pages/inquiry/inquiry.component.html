@@ -41,10 +41,10 @@
       <mat-card-content>
         <br>
         <p>Correct guesses:</p>
-        <p>{{ correctGuesses$ | async }}</p>
+        <p class="correct">{{ correctGuesses$ | async }}</p>
         <br>
         <p>Incorrect guesses:</p>
-        <p>{{ incorrectGuesses$ | async }}</p>
+        <p class="incorrect">{{ incorrectGuesses$ | async }}</p>
 
       </mat-card-content>
     </mat-card>

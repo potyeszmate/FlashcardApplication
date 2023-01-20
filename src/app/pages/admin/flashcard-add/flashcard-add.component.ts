@@ -2,7 +2,7 @@ import { SelectionChange } from '@angular/cdk/collections';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, FormArray } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { CategoryService } from 'src/service/category.service';
+import { CategoryService } from 'src/app/service/category.service';
 
 
 /* interface Category {

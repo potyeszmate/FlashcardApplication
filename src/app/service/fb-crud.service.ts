@@ -9,14 +9,24 @@ import { Flashcard } from 'src/app/shared/modells/flashcard.model';
 })
 export class FbCrudService {
 
-  constructor(private afs: AngularFirestore) { }
+  //Flashcard properties
+  public flashcardId: string = "";
+  public engPhrase: string = "";
+  public hunPhrase: string = "";
+  public category: string = "";
 
-  //list
+
+  constructor(private afs: AngularFirestore) { }
+  
+  //Service for the CRUD functions
+
+
+  //Get elements
   get(collectionName: string) : Observable<Flashcard[]>{
     return this.afs.collection(collectionName).valueChanges() as Observable<Flashcard[]>;
   }
 
-  //getByid (1 doc lekerese)
+  //getByid (get 1 element)
   getById(collectionName: string, id: string) : Observable<any>{
     return this.afs.collection(collectionName, ref => {
       let query:CollectionReference | Query = ref;
@@ -25,7 +35,7 @@ export class FbCrudService {
     }).valueChanges() as Observable<Flashcard[]>;
   }
 
-    //add
+  //add
   async add(collectionName: string, data: Flashcard, id?: string): Promise<string> 
   {
     const uid = id ? id: this.afs.createId();
@@ -35,18 +45,18 @@ export class FbCrudService {
     return uid;
   }
   
-  //weakadd
+  /* //weakadd
   weakadd(collectionName: string, data: Flashcard) 
   {
       this.afs.collection(collectionName).add(data);
-  }
+  } */
 
   //update
   update(collectionName: string,id: string, data: Flashcard){
     return this.afs.collection(collectionName).doc(id).update(data);
   } 
 
-  //give id to data
+  //give id to an element
   giveID(collectionName: string,id: string, data: Flashcard){
     return this.afs.collection(collectionName).doc(id).update(data);
   }
@@ -58,11 +68,6 @@ export class FbCrudService {
     //this.afs.collection(collectionName).doc(uid).set(data);
 
   }
-
-  public flashcardId: string = "";
-  public engPhrase: string = "";
-  public hunPhrase: string = "";
-  public category: string = "";
 
 
   //set flashcards properties

@@ -1,7 +1,10 @@
+<h2>Create, update, add or delete the Flashcards in the database</h2>
+
+
 <div class="center">
 
-  <div class="inner-card" *ngFor="let item of flashcards | async;">
 
+  <div class="inner-card" *ngFor="let item of flashcards | async;">
     <!-- Listing the cards  -->
     <br><br>
     <app-flashcard-card class="card-container" class="item" [flashcard]="item"> </app-flashcard-card>
@@ -10,12 +13,12 @@
 
     <div class="buttons">
       <!-- Listing the two buttons  -->
-      <button mat-button (click)="updateFlashcard(item.id)"
+      <button class="update" mat-button (click)="updateFlashcard(item.id)"
         (click)="selectFlashcard(item.id,item.engPhrase,item.hunPhrase,item.category)" routerLinkActive="active">
         <mat-icon>edit icon</mat-icon>
       </button>
 
-      <button mat-button (click)="deleteFlashcard(item.id)" routerLinkActive="active">
+      <button class="delete" mat-button (click)="delete(item.id)" routerLinkActive="active">
         <mat-icon>delete icon</mat-icon>
       </button>
     </div>

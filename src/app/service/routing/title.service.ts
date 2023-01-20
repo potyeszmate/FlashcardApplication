@@ -12,10 +12,15 @@ export class TitleService implements OnDestroy {
 
   constructor(private router: Router, private title: Title) { }
 
+  //A sample for dynamic title title
+
+
   ngOnDestroy(): void {
     this.titleSubscription.unsubscribe();
   }
 
+
+  //Refresh for the current title
   refreshTitle(): void {
     this.titleSubscription = this.router.events.subscribe(event => {
       if(event instanceof NavigationEnd) {
@@ -25,6 +30,7 @@ export class TitleService implements OnDestroy {
     })
   }
 
+  //Get the current title
   getTitle(state: RouterState | any, parent: ActivatedRoute): any[] {
     const data = [];
 

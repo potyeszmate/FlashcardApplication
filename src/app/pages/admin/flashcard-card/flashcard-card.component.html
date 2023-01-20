@@ -1,7 +1,13 @@
 <div class="card-container">
   <mat-card class="card-container" class="card" *ngIf="flashcard">
-    <img mat-card-image src="https://blog.langavia.com/wp-content/uploads/2022/05/multipurpouse-flashcards.jpg"
-      alt="Card image">
+    <img *ngIf="flashcard.category === 'Human' " src="https://img.freepik.com/premium-vector/opposite-adjective-antonym-words-boy-girl-illustration-explanation-flashcard-with-text-label_535862-780.jpg?w=2000" alt="Card image">
+    <img *ngIf="flashcard.category === 'Work' " src="https://blog.langavia.com/wp-content/uploads/2022/05/Flashcards-really-work.jpg" alt="Card image">
+    <img *ngIf="flashcard.category === 'Study' " src="https://www.wikihow.com/images/5/51/Make-Flash-Cards-Step-26-Version-4.jpg" alt="Card image">
+    <img *ngIf="flashcard.category === 'Hobby' " src="https://t3.ftcdn.net/jpg/02/00/88/50/360_F_200885053_VHUqwsHLbdk3TJME50eyr6H7FdUvfcF0.jpg" alt="Card image">
+    <img *ngIf="flashcard.category === 'Sport' " src="https://media.istockphoto.com/id/1134302837/vector/group-of-people-performing-sports-activities-at-park-doing-yoga-and-gymnastics-exercises.jpg?s=612x612&w=0&k=20&c=Gfr4uNHYQK_pQLhbfteSehOmCtZaXdG-fPT5cw3_jVY=" alt="Card image">
+    <img *ngIf="flashcard.category === 'Food' " src="https://images.designtrends.com/wp-content/uploads/2017/04/15-Food-Illustration.jpg" alt="Card image">
+    <img *ngIf="flashcard.category === 'Politics' " src="https://img.freepik.com/free-vector/people-taking-part-political-event-flat-illustration_74855-16914.jpg?w=2000" alt="Card image">
+
 
     <mat-card-content>
       <mat-card-title>{{flashcard.category}}</mat-card-title>

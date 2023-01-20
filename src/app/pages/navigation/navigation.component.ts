@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AuthService } from 'src/service/auth.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 
 @Component({

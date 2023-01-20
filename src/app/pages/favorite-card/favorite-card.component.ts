@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { FbCrudService } from 'src/app/service/fb-crud.service';
 import { Flashcard } from 'src/app/shared/modells/flashcard.model';
-import { FbCrudService } from 'src/service/fb-crud.service';
 
 @Component({
   selector: 'app-favorite-card',

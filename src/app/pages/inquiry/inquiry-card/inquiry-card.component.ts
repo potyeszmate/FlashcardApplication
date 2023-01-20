@@ -1,7 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { GuessService } from 'src/app/service/guesses.service';
 import { Flashcard } from 'src/app/shared/modells/flashcard.model';
-import { GuessService } from 'src/service/guesses.service';
 
 @Component({
   selector: 'app-inquiry-card',

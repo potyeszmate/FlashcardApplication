@@ -13,7 +13,7 @@ export class AuthService {
 
     isLoggedIn = false;
 
-
+    
     constructor(
         private afAuth: AngularFireAuth,
         private afs: AngularFirestore,
@@ -32,7 +32,7 @@ export class AuthService {
 
 
 
-    //register authentication
+    //Register authentication
     async signup(email: string, password: string){
 
         await this.afAuth.createUserWithEmailAndPassword(email,password)
@@ -44,7 +44,7 @@ export class AuthService {
         )
      }
 
-    //google authentication
+    //Google authentication
     googleAuth() {
         firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((result) => {
           console.log(result);
@@ -53,20 +53,16 @@ export class AuthService {
     } 
 
     
-  
-
-    
-
-    loginWithFacebook() { 
+  /*   loginWithFacebook() { 
         firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()).then((result) => {
             console.log(result);
             this.router.navigate(['/home']); 
         });
-    }
+    } */
 
 
 
-    //curr user
+    //If user is logged in 
     currentUserObservable() :any {
         return this.afAuth.authState;
     }
