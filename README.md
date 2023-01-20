@@ -20,7 +20,7 @@
 
 1. npm install (if needed)
 2. npm run start (or simply just ng serve)
-3. To see admin page (email: admin1.vocabapp.com password: admin12345678)
+3. To see admin page (email: admin1@vocabapp.com password: admin12345678)
 
 
 ## Versions
