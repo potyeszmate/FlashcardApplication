@@ -12,11 +12,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: 
     [
-      //Set the homecomponents children (lazy loading)
-      /* {
-        path: 'category', 
-        loadChildren: () => import('./../category/category.module').then(m => m.CategoryModule)
-      }, */
+      
       {
         path: 'study', 
         loadChildren: () => import('./../study/study.module').then(m => m.StudyModule)
@@ -30,12 +26,7 @@ const routes: Routes = [
         loadChildren: () => import('./../admin/flashcard-list/flashcard-list.module').then(m => m.FlashcardListModule)
         
       },
-      {
-        path: 'favoritecards', 
-        loadChildren: () => import('./../favorite-card/favorite-card.module').then(m => m.FavoriteCardModule)
-        
-      },
-                     
+              
     ],
     canActivateChild: [AuthGuard]
 

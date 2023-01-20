@@ -6,15 +6,15 @@
 
   <div class="inner-card" *ngFor="let item of flashcards | async;">
     <!-- Listing the cards  -->
-    <br><br>
+    <br>
     <app-flashcard-card class="card-container" class="item" [flashcard]="item"> </app-flashcard-card>
 
 
-
+    <!-- (click)="selectFlashcard(item.engPhrase,item.hunPhrase,item.category)" -->
     <div class="buttons">
       <!-- Listing the two buttons  -->
-      <button class="update" mat-button (click)="updateFlashcard(item.id)"
-        (click)="selectFlashcard(item.id,item.engPhrase,item.hunPhrase,item.category)" routerLinkActive="active">
+      <button class="update" mat-button (click)="updateFlashcard(item.id,item.engPhrase,item.hunPhrase,item.category)"
+         routerLinkActive="active">
         <mat-icon>edit icon</mat-icon>
       </button>
 

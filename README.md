@@ -10,11 +10,17 @@
 - Login and register (with google account as well)
 - Other features: Authguard, dynamic title, profile page (didn't have time to complete)
 
+## Bugs / Incompleted task
+
+- Incompleted task: In the inquiry page, when we are done with the first 10 cards, load the remaining
+- Bugs: User can reach CRUD page by typeing in the page name to the URL, Delete: you can click the delete button if you select "No" (but of course it will not delete the item, it's just clickable)
+
 
 ## Installation
 
 1. npm install (if needed)
 2. npm run start (or simply just ng serve)
+3. To see admin page (email: admin1.vocabapp.com password: admin12345678)
 
 
 ## Versions

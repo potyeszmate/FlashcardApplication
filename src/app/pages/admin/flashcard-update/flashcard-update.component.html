@@ -4,20 +4,20 @@
   <!-- Same as the add HTML, but in the placeholder we give the flashcards values (!BUG! : it shows the flashcards values we clicked before) -->
   <mat-form-field class="max-width">
     <mat-label>Hungarian phrase</mat-label>
-    <input type="text" placeholder="{{hunPhrase}}" formControlName="hunPhrase" matInput cdkTextareaAutosize required
+    <input type="text" [(ngModel)]="hunPhrase" placeholder="{{hunPhrase}}" formControlName="hunPhrase" matInput cdkTextareaAutosize required
       cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6">
   </mat-form-field>
 
   <mat-form-field class="max-width">
     <mat-label>English phrase</mat-label>
-    <input type="text" placeholder="{{engPhrase}}" formControlName="engPhrase" matInput cdkTextareaAutosize required
+    <input type="text" [(ngModel)]="engPhrase" placeholder="{{engPhrase}}" formControlName="engPhrase" matInput cdkTextareaAutosize required
       cdkAutosizeMinRows="2" cdkAutosizeMaxRows="6">
   </mat-form-field>
 
 
   <mat-form-field class="max-width" appearance="fill">
 
-    <mat-select placeholder="{{selected}}" formControlName="category" (selectionChange)="changeCategory($event.value)">
+    <mat-select [(ngModel)]="selected" placeholder="{{selected}}" formControlName="category" (selectionChange)="changeCategory($event.value)">
       <mat-option *ngFor="let category of categories" [value]="category">
         {{category}}
       </mat-option>

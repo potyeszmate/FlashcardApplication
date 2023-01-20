@@ -71,8 +71,7 @@ export class FbCrudService {
 
 
   //set flashcards properties
-  setFlashcard(id: string,engPhrase: string, hunPhrase: string,category: string) {
-    this.flashcardId = id;
+  setFlashcard(engPhrase: string, hunPhrase: string,category: string) {
     this.engPhrase = engPhrase;
     this.hunPhrase = hunPhrase;
     this.category = category;

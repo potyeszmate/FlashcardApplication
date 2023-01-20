@@ -1,7 +1,9 @@
 <div class="centering">
   <mat-card class="reg-card">
     <form [formGroup]="form" (submit)="registration()">
-      <h3>Registration page</h3>
+      <img class="primary-icon" src="https://cdn-icons-png.flaticon.com/512/6587/6587388.png"> <p>Flashcard Application</p>
+        <br>
+        <h2>Create an account</h2>
       
       <!-- Username and email input -->
       <mat-form-field class="max-width">
@@ -46,8 +48,8 @@
       <br><br>
       <h3>Already have an account?</h3>
       <!-- Go to login page -->
-      <div class="regbtn">
-        <button mat-button color="accent" [routerLink]="[ '/login' ]">Login</button>
+      <div class="loginbtn">
+        <button mat-button mat-raised-button color="accent" class="min-width" [routerLink]="[ '/login' ]">Login</button>
       </div>
 
     </form>

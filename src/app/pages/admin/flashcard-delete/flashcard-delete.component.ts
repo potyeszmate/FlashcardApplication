@@ -12,19 +12,17 @@ export class FlashcardDeleteComponent {
 
   constructor(public dialogRef: MatDialogRef<FlashcardDeleteComponent>,private router: Router) { }
 
+  //yes or no answers
   categories = ['No', 'Yes'];
-  //The selected category (by default:Sport)
+  //init. by defaul: No
   selectedCategory: string = 'No';
 
-  //Formgroup for the flashcard add
+  //Formgroup ford delete (yes or no)
   deleteForm: FormGroup = new FormGroup({
     category: new FormControl(''),
 
   });
 
-  navUrl(url: string){
-    this.router.navigateByUrl(url);
-  }
 
    //Sets the value the the selectedCategory variable
    changeCategory(value: string) {

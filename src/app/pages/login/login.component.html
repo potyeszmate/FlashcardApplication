@@ -3,7 +3,7 @@
       <form [formGroup]="form" (ngSubmit)="login()">
         <img class="primary-icon" src="https://cdn-icons-png.flaticon.com/512/6587/6587388.png"> <p>Flashcard Application</p>
         <br>
-        <h2>Login</h2>
+        <h2>Welcome back!</h2>
 
         <mat-card id="alertCard" class="alert" *ngIf="alertMessage">
           {{alertMessage}}
@@ -44,7 +44,7 @@
        <br>
         <h4>Don't have an account yet?</h4>
         <div class="regbtn">
-          <button mat-button color="accent" (click)="navTo('/register')">Register</button>
+          <button mat-button mat-raised-button color="accent" class="min-width" (click)="navTo('/register')">Register</button>
         </div>
         <br>
      

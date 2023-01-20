@@ -24,10 +24,26 @@
     
   }
   
-  .regbtn{
+  .loginbtn{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 10%;
     margin-right: 10%;
    }
+
+   .min-width {
+    width: 40%;
+  }
+
+  .primary-icon{
+    height: 40px;
+ }
+
+ p{
+  margin-left: 60px;
+  margin-top: -33px;
+  text-align: justify;
+  font-size: 18px;
+
+ }

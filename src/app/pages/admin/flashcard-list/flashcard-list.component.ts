@@ -57,14 +57,19 @@ export class FlashcardListComponent implements OnInit {
 
 
   //UpdateFlashcard (pressing the edit btn)
-  updateFlashcard(id: string): void {
+  updateFlashcard(id: string, engPhrase: string, hunPhrase: string, category: string): void {
     this.service.getById('flashcards', id);
+    this.service.setFlashcard(engPhrase, hunPhrase, category);
+    console.log(this.service.hunPhrase);
+    console.log(this.service.engPhrase);
     const dialogRef = this.dialog.open(FlashcardUpdateComponent, {
       //Set the dialog size for example
+      
     });
 
     dialogRef.afterClosed().subscribe((result: Flashcard) => {
       console.log(result);
+      
 
       if (result?.hunPhrase) {
         //Set the id to the flashcard (we need the sam id) and update with the new values
@@ -107,13 +112,13 @@ export class FlashcardListComponent implements OnInit {
       console.warn(err);
     });
   }
-
+/* 
   //Stores the selected flashcards values, to show it on the update dialog
-  selectFlashcard(id: string, engPhrase: string, hunPhrase: string, category: string) {
-    this.service.setFlashcard(id, engPhrase, hunPhrase, category);
+  selectFlashcard( engPhrase: string, hunPhrase: string, category: string) {
+    this.service.setFlashcard(engPhrase, hunPhrase, category);
     console.log(this.service.hunPhrase);
     console.log(this.service.engPhrase);
   }
-
+ */
 
 }
