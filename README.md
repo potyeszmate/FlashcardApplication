@@ -9,6 +9,4 @@ A basic Flashcard application, created in Angular. For authentication and storag
 - Admin view: All the CRUD functions are available here (Create, Updtate, List, Delete)
 - Login and register (with google account as well)
 - Other features: Authguard, dynamic title, profile page (didn't have time to complete)
-
-- Incompleted task: In the inquiry page, when we are done with the first 10 cards, load the remaining
-- Feature left: A simple guard for admin page
+- Task left: A simple guard for admin page
