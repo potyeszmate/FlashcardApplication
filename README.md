@@ -10,3 +10,5 @@ A basic Flashcard application, created in Angular. For authentication and storag
 - Login and register (with google account as well)
 - Other features: Authguard, dynamic title, profile page (didn't have time to complete)
 - Task left: A simple guard for admin page
+
+Created in: 2023 January
