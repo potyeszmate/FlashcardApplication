@@ -1,6 +1,6 @@
 ## _Flashcard application_
 
-A basic Flashcard application, created in Angular. For authentication and storage I used Firebase.
+A basic Flashcard application, created in Angular in 40 hours for a trial work. For authentication and storage I used Firebase.
 
 ## Features
 
